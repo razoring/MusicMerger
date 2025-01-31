@@ -35,7 +35,7 @@ body {
     align-items: center;
     background-size: contain;
     padding: 0;
-    transition: 10ms;
+    transition: 100ms;
 }
 
 .generator {
