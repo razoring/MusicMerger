@@ -64,6 +64,8 @@ function login(clientId, id) {
         } else {
             console.log("Failed to retrieve artworks.");
         }
+        
+        init();
     }
 
     initialize();
@@ -116,4 +118,3 @@ document.addEventListener("drop", (e) => {
 });
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist); 
-init();
