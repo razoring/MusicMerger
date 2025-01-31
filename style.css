@@ -18,7 +18,7 @@ body {
     border-radius: 10%;
     padding: 0px;
     margin: auto;
-    width: min-content;
+    width: max-content;
 }
 
 .tile { /*. for all classes*/
