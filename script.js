@@ -115,7 +115,8 @@ document.addEventListener("drop", (e) => {
                 draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = -1;
                 e.target.dataset.value = e.target.dataset.value + 1;
-                e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`
+                e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`;
+                console.log(e.target.dataset.value);
             }
         }
     }
