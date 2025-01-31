@@ -3,6 +3,8 @@ const board = document.getElementById("board");
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let covers = {};
 let emptyTiles = [];
+let coins = 0;
+let rows = 2;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -75,7 +77,7 @@ function login(clientId, id) {
 function init() {
     board.innerHTML = "";
 
-    for (let y = 0; y < 9; y++) {
+    for (let y = 0; y < rows; y++) {
         for (let x = 0; x < 7; x++) {
             let tile = document.createElement("div");
 
@@ -153,10 +155,9 @@ function handleTileDrop(target) {
 
                 target.dataset.value = (parseInt(target.dataset.value) + 1).toString();
                 target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
-
                 emptyTiles = emptyTiles.filter(tile => tile !== target);
 
-                console.log("Merged! New Value:", target.dataset.value);
+                coins = coins + 1;
             }
         }
     }
