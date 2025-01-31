@@ -1,5 +1,5 @@
 const board = document.getElementById("board");
-const playlist = "https://open.spotify.com/playlist/37i9dQZF1EJypfUGFp2ga5";
+const playlist = "37i9dQZF1EJypfUGFp2ga5";
 let accessToken = "";
 
 function authenticateAndFetchPlaylist(clientId, playlistUrl) {
@@ -12,17 +12,12 @@ function authenticateAndFetchPlaylist(clientId, playlistUrl) {
         `&scope=${encodeURIComponent(scope)}` +
         `&show_dialog=true`;
 
-    function extractPlaylistId(url) {
-        const match = url.match(/playlist\/([a-zA-Z0-9]+)/);
-        return match ? match[1] : null;
-    }
-
     async function fetchSpotifyPlaylist(accessToken) {
         try {
             const playlistId = extractPlaylistId(playlistUrl);
             if (!playlistId) throw new Error("Invalid Spotify playlist URL.");
 
-            const apiUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+            const apiUrl = `https://api.spotify.com/v1/playlists/${playlist}/tracks`;
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {
@@ -122,4 +117,4 @@ document.addEventListener("drop", (e) => {
 });
 
 init();
-authenticateAndFetchPlaylist("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
+login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
