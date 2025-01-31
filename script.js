@@ -140,9 +140,6 @@ document.addEventListener("touchstart", (e) => {
         target.style.opacity = "0.5";
     }
 });
-document.addEventListener("touchmove", (e) => {
-    e.preventDefault();
-});
 document.addEventListener("touchend", (e) => {
     let touch = e.changedTouches[0];
     let target = document.elementFromPoint(touch.clientX, touch.clientY);
