@@ -5,24 +5,27 @@
 body {
     background-color: rgb(18, 18, 18);
     text-align: center;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     overflow: hidden;
 }
 
-#board { /*# for single class*/
+#board {
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 1%;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    gap: 2px; /* Reduce or remove */
+    grid-template-columns: repeat(7, var(--tileSize));
+    grid-template-rows: repeat(9, var(--tileSize));
     border-radius: 5%;
     padding: 1%;
     margin: auto;
-    width: max-content;
-    height: max-content;
+    width: calc(7 * var(--tileSize) + 12px); /* Account for gap */
+    height: calc(9 * var(--tileSize) + 16px);
+    overflow: hidden;
 }
 
-.tile { /*. for all classes*/
+.tile {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: rgba(255, 0, 0, 0);
@@ -30,7 +33,7 @@ body {
     cursor: grab;
     align-items: center;
     background-size: contain;
-    padding: 10%;
+    padding: 0; /* Remove padding */
 }
 
 .generator {
