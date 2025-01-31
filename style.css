@@ -16,14 +16,14 @@ body {
     border-radius: 5%;
     padding: 1%;
     margin: auto;
-    width: min-content;
+    width: calc(min-content+2%);
 }
 
 .tile { /*. for all classes*/
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: inherit;
-    border-radius: 5%;
+    border-radius: 2%;
     cursor: grab;
     align-items: center;
     background-size: contain;
