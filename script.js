@@ -78,6 +78,17 @@ function init() {
             if (x == Math.floor(7 / 2) && y == Math.floor(9 / 2)) {
                 let tile = document.createElement("div");
                 tile.classList.add("tile", "generator");
+                tile.addEventListener("click", () => {
+                    if (emptyTiles.length > 0) {
+                        let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0]; // Remove from list
+
+                        chosenTile.classList.remove("empty");
+                        chosenTile.dataset.value = "0";
+                        chosenTile.style.backgroundImage = `url("${covers[0]}")`;
+                        chosenTile.setAttribute("draggable", "true");
+                    }
+                });
                 board.appendChild(tile);
             } else {
                 let rand = Math.round(Math.random());
