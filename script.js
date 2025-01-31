@@ -2,9 +2,9 @@ const board = document.getElementById("board");
 const playlist = "37i9dQZF1EJypfUGFp2ga5";
 let accessToken = "";
 
-function login(clientId, playlistUrl) {
+function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
-    const scope = "user-read-private user-read-email";
+    const scope = "user-read-private user-library-read";
     const authUrl = `https://accounts.spotify.com/authorize?` +
         `client_id=${clientId}` +
         `&response_type=token` +
@@ -14,10 +14,7 @@ function login(clientId, playlistUrl) {
 
     async function fetchSpotifyPlaylist(accessToken) {
         try {
-            const playlistId = extractPlaylistId(playlistUrl);
-            if (!playlistId) throw new Error("Invalid Spotify playlist URL.");
-
-            const apiUrl = `https://api.spotify.com/v1/playlists/${playlist}/tracks`;
+            const apiUrl = `https://api.spotify.com/v1/playlists/${id}/tracks`;
             const response = await fetch(apiUrl, {
                 method: "GET",
                 headers: {
