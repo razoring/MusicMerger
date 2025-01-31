@@ -18,7 +18,7 @@ body {
     gap: var(--gap);
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 5%;
+    border-radius: 2%;
     padding: var(--gap);
     margin: auto;
     width: max-content;
