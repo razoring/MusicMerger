@@ -10,13 +10,13 @@ body {
 #board { /*# for single class*/
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 1%;
+    gap: 0px;
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
     border-radius: 5%;
-    padding: 1%;
+    padding: 0px;
     margin: auto;
-    width: calc(min-content+1%);
+    width: min-content;
 }
 
 .tile { /*. for all classes*/
