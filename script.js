@@ -79,7 +79,7 @@ function init() {
         for (let x = 0; x < 7; x++) {
             let tile = document.createElement("div");
 
-            if (x === Math.floor(7 / 2) && y === Math.floor(9 / 2)) {
+            if (x === 0 && y === 0) {
                 tile.classList.add("tile", "generator");
                 tile.addEventListener("click", () => {
                     if (emptyTiles.length > 0) {
