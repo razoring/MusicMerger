@@ -117,13 +117,19 @@ document.addEventListener("dragstart", (e) => {
         draggedTile = e.target;
         e.target.style.opacity = "0.5";
     }
-    for (let tile of document.getElementById("board").children) {
-        if (tile.dataset.value != draggedTile.dataset.value) {
-            tile.style.opacity = "0.5";
+    let tiles = document.getElementById("board").children;
+        for (let tile of tiles) {
+            if (tile !== draggedTile) {
+                tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
+            }
         }
+});
+document.addEventListener("dragover", (e) => {
+    e.preventDefault()
+    for (let tile of tiles) {
+        tile.style.opacity = "1";
     }
 });
-document.addEventListener("dragover", (e) => e.preventDefault());
 document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
 });
