@@ -110,32 +110,57 @@ function init() {
         }
     }
 }
-
-draggedTile = null;
-document.addEventListener("dragover", (e) => e.preventDefault());
+let draggedTile = null;
 document.addEventListener("dragstart", (e) => {
     if (e.target.classList.contains("tile") && !e.target.classList.contains("generator") && !e.target.classList.contains("empty")) {
         draggedTile = e.target;
         e.target.style.opacity = "0.5";
     }
 });
+document.addEventListener("dragover", (e) => e.preventDefault());
 document.addEventListener("drop", (e) => {
+    handleTileDrop(e.target);
+});
+
+document.addEventListener("touchstart", (e) => {
+    let target = e.target.closest(".tile");
+    if (target && !target.classList.contains("generator") && !target.classList.contains("empty")) {
+        draggedTile = target;
+        target.style.opacity = "0.5";
+    }
+});
+document.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+});
+document.addEventListener("touchend", (e) => {
+    let touch = e.changedTouches[0];
+    let target = document.elementFromPoint(touch.clientX, touch.clientY);
+    handleTileDrop(target);
+});
+
+function handleTileDrop(target) {
+    if (!draggedTile) return;
     draggedTile.style.opacity = "1";
-    if (e.target.classList.contains("tile") && draggedTile && !e.target.classList.contains("generator")) {
-        if (!e.target.classList.contains("empty")) {
-            if (e.target.dataset.value == draggedTile.dataset.value && e.target != draggedTile) {
+
+    if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
+        if (!target.classList.contains("empty")) {
+            if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
-                draggedTile.dataset.value = parseInt(-1);
+                draggedTile.dataset.value = "-1";
                 emptyTiles.push(draggedTile);
-                emptyTiles = emptyTiles.filter(tile => tile !== e.target);
-                e.target.dataset.value = parseInt(e.target.dataset.value) + 1;
-                e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`;
-                console.log(e.target.dataset.value);
+
+                target.dataset.value = (parseInt(target.dataset.value) + 1).toString();
+                target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
+
+                emptyTiles = emptyTiles.filter(tile => tile !== target);
+
+                console.log("Merged! New Value:", target.dataset.value);
             }
         }
     }
-});
+    draggedTile = null;
+}
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist); 
