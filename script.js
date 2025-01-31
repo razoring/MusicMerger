@@ -5,7 +5,7 @@ let accessToken = "";
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
-    const scope = "user-read-private user-library-read";
+    const scope = "user-read-private user-library-read playlist-read-private playlist-read-public";
     const authUrl = `https://accounts.spotify.com/authorize?` +
         `client_id=${clientId}` +
         `&response_type=token` +
