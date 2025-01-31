@@ -1,3 +1,7 @@
+:root {
+    --tileSize: 10%;
+}
+
 body {
     background-color: rgb(18, 18, 18);
     text-align: center;
@@ -6,20 +10,20 @@ body {
 #board { /*# for single class*/
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 10px;
-    grid-template-columns: repeat(7, 50px);
-    grid-template-rows: repeat(9, 50px);
-    border-radius: 10px;
-    padding: 10px;
-    width: 410px;
+    gap: 1%;
+    grid-template-columns: repeat(7, var(--tileSize));
+    grid-template-rows: repeat(9, var(--tileSize));
+    border-radius: 1%;
+    padding: 1%;
     margin: auto;
+    max-width: 100%;
 }
 
 .tile { /*. for all classes*/
-    width: 50px;
-    height: 50px;
+    width: var(--tileSize);
+    height: var(--tileSize);
     background-color: inherit;
-    border-radius: 5px;
+    border-radius: 1%;
     cursor: grab;
     align-items: center;
     background-size: contain;
