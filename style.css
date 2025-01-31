@@ -24,12 +24,12 @@ body {
 .tile { /*. for all classes*/
     width: var(--tileSize);
     height: var(--tileSize);
-    background-color: inherit;
+    background-color: rgba(255, 0, 0, 0);
     border-radius: 10%;
     cursor: grab;
     align-items: center;
     background-size: contain;
-    padding: 2%;
+    padding: 10%;
 }
 
 .generator {
