@@ -1,0 +1,37 @@
+body {
+    background-color: aliceblue;
+    text-align: center;
+}
+
+#board { /*# for single class*/
+    display: grid;
+    background-color: cadetblue;
+    gap: 10px;
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(9, 50px);
+    border-radius: 10px;
+    padding: 10px;
+    width: 410px;
+    margin: auto;
+}
+
+.tile { /*. for all classes*/
+    width: 50px;
+    height: 50px;
+    background-color: inherit;
+    border-radius: 5px;
+    cursor: grab;
+    align-items: center;
+    background-size: contain;
+}
+
+.generator {
+    background-color: green;
+    background-size: contain;
+    background-image: url("https://s.tiled.co/assets/media/d17eae814ee7d6d724c4.png");
+    cursor: pointer;
+}
+
+.empty {
+    cursor: default;
+}
