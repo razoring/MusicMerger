@@ -120,10 +120,9 @@ document.addEventListener("dragstart", (e) => {
 });
 document.addEventListener("dragover", (e) => e.preventDefault());
 document.addEventListener("touchmove", (e) => {
-    console.log("moved");
     e.preventDefault();
     if (!draggedTile) return;
-    console.log("1");
+    console.log(e.target);
     if (e.target && e.target.classList.contains("tile") && e.target !== draggedTile && !e.target.classList.contains("generator")) {
         console.log("2");
         if (!e.target.classList.contains("empty")) {
