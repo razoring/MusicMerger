@@ -117,20 +117,13 @@ document.addEventListener("dragstart", (e) => {
         draggedTile = e.target;
         e.target.style.opacity = "0.5";
     }
-});
-document.addEventListener("dragover", (e) => e.preventDefault());
-document.addEventListener("mousemove", (e) => {
-    if (!draggedTile) return;
-
-    let targetTile = e.target.closest(".tile");
-    if (!targetTile || targetTile === draggedTile || targetTile.classList.contains("generator")) return;
-
-    document.querySelectorAll(".tile").forEach(tile => tile.style.opacity = "1");
-
-    if (!targetTile.classList.contains("empty") && parseInt(targetTile.dataset.value) === parseInt(draggedTile.dataset.value)) {
-        targetTile.style.opacity = "0.5";
+    for (let tile of document.getElementById("board").children) {
+        if (tile.dataset.value != draggedTile.dataset.value) {
+            tile.style.opacity = "0.5";
+        }
     }
 });
+document.addEventListener("dragover", (e) => e.preventDefault());
 document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
 });
