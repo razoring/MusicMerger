@@ -145,7 +145,8 @@ document.addEventListener("touchstart", (e) => {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
-                tile.style.boxShadow = "0px 0px 1px rgba(0, 255, 0, 0.22)";
+                tile.style.border = "3px solid rgb(187, 255, 193)";
+                tile.style.boxShadow = "0px 0px 5px rgba(0, 255, 0, 0.22)";
             }
         }
     }
@@ -170,6 +171,7 @@ function handleTileDrop(target) {
         tile.style.opacity = "1";
         tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
         tile.style.boxShadow = "none";
+        tile.style.border = "none";
     }
 
     if (!draggedTile) return;
