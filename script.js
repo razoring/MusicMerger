@@ -139,6 +139,14 @@ document.addEventListener("touchend", (e) => {
     handleTileDrop(target);
 });
 
+document.addEventListener("click", (e) => {
+    if (e.target.id === "clear") {
+        localStorage.removeItem("spotify_access_token");
+        console.log("clicked");
+        login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
+    }
+});
+
 function handleTileDrop(target) {
     if (!draggedTile) return;
     draggedTile.style.opacity = "1";
@@ -164,8 +172,3 @@ function handleTileDrop(target) {
 }
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
-document.getElementById("clear").addEventListener("click", (e) => {
-    localStorage.removeItem("spotify_access_token");
-    console.log("clicked")
-    login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
-})
