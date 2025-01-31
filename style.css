@@ -13,7 +13,7 @@ body {
     gap: 0px;
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 5%;
+    border-radius: 10%;
     padding: 0px;
     margin: auto;
     width: min-content;
@@ -23,10 +23,11 @@ body {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: inherit;
-    border-radius: 2%;
+    border-radius: 10%;
     cursor: grab;
     align-items: center;
     background-size: contain;
+    padding: 2%;
 }
 
 .generator {
