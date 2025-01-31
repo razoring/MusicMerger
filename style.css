@@ -16,7 +16,7 @@ body {
     border-radius: 5%;
     padding: 1%;
     margin: auto;
-    width: calc(min-content+2%);
+    width: calc(min-content+1%);
 }
 
 .tile { /*. for all classes*/
