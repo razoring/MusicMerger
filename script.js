@@ -129,6 +129,7 @@ document.addEventListener("drop", (e) => {
                 draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = parseInt(-1);
                 emptyTiles.push(draggedTile);
+                emptyTiles.remove(e.target);
                 e.target.dataset.value = parseInt(e.target.dataset.value) + 1;
                 e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`;
                 console.log(e.target.dataset.value);
