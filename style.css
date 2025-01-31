@@ -1,12 +1,12 @@
 :root {
-    --tileSize: 6vw;
+    --tileSize: 20vw;
 }
 
 body {
     background-color: rgb(18, 18, 18);
     text-align: center;
     height: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 #board { /*# for single class*/
