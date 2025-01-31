@@ -72,16 +72,19 @@ function login(clientId, id) {
 }
 
 function init() {
-    board.innerHTML = ""; // clear board
+    board.innerHTML = "";
+    const emptyTiles = [];
+
     for (let y = 0; y < 9; y++) {
         for (let x = 0; x < 7; x++) {
-            if (x == Math.floor(7 / 2) && y == Math.floor(9 / 2)) {
-                let tile = document.createElement("div");
+            let tile = document.createElement("div");
+
+            if (x === Math.floor(7 / 2) && y === Math.floor(9 / 2)) {
                 tile.classList.add("tile", "generator");
                 tile.addEventListener("click", () => {
                     if (emptyTiles.length > 0) {
                         let randomIndex = Math.floor(Math.random() * emptyTiles.length);
-                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0]; // Remove from list
+                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
                         chosenTile.classList.remove("empty");
                         chosenTile.dataset.value = "0";
@@ -89,21 +92,21 @@ function init() {
                         chosenTile.setAttribute("draggable", "true");
                     }
                 });
-                board.appendChild(tile);
             } else {
                 let rand = Math.round(Math.random());
-                let tile = document.createElement("div");
-                if (rand == 0) {
+                if (rand === 0) {
                     tile.classList.add("tile");
                     tile.setAttribute("draggable", "true");
-                    tile.dataset.value = Math.round(Math.random() * 5);
+                    tile.dataset.value = Math.floor(Math.random() * 5);
                     tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
                 } else {
-                    tile.dataset.value = parseInt(-1);
                     tile.classList.add("tile", "empty");
+                    tile.dataset.value = "-1";
+                    emptyTiles.push(tile);
                 }
-                board.appendChild(tile);
             }
+
+            board.appendChild(tile);
         }
     }
 }
