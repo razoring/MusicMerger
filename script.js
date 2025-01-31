@@ -103,7 +103,6 @@ document.addEventListener("dragstart", (e) => {
     if (e.target.classList.contains("tile") && !e.target.classList.contains("generator") && !e.target.classList.contains("empty")) {
         draggedTile = e.target;
         e.target.style.opacity = "0.5";
-        console.log(e.target.dataset.value);
     }
 });
 document.addEventListener("drop", (e) => {
@@ -111,6 +110,7 @@ document.addEventListener("drop", (e) => {
     if (e.target.classList.contains("tile") && draggedTile && !e.target.classList.contains("generator")) {
         if (!e.target.classList.contains("empty")) {
             if (e.target.dataset.value == draggedTile.dataset.value) {
+                console.log("found")
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
