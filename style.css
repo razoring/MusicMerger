@@ -5,6 +5,8 @@
 body {
     background-color: rgb(18, 18, 18);
     text-align: center;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 #board { /*# for single class*/
