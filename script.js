@@ -1,6 +1,7 @@
 const board = document.getElementById("board");
-const playlist = "37i9dQZF1EJAnB2jypsBHB";
-//const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
+//const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
+const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
+let covers = {};
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -59,6 +60,7 @@ function login(clientId, id) {
         const artworks = await fetchSpotifyPlaylist(accessToken);
         if (artworks) {
             console.log("Fetched Artworks:", artworks);
+            covers = artworks;
         } else {
             console.log("Failed to retrieve artworks.");
         }
@@ -80,7 +82,7 @@ function init() {
                 let tile = document.createElement("div");
                 if (rand == 0) {
                     tile.classList.add("tile");
-                    tile.style.backgroundImage = `url("https://s.tiled.co/assets/media/d17eae814ee7d6d724c4.png")`;
+                    tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
                     tile.setAttribute("draggable", "true");
                     tile.dataset.value = Math.round(Math.random() * 5);
                 } else {
