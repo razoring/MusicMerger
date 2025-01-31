@@ -46,7 +46,7 @@ body {
 }
 
 .tile::after {
-    filter: blur(0px);
+    filter: none;
 }
 
 .generator {
