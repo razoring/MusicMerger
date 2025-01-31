@@ -121,6 +121,9 @@ document.addEventListener("dragstart", (e) => {
         for (let tile of tiles) {
             if (tile !== draggedTile) {
                 tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
+            } else {
+                tile.style.background = "linear-gradient(-360deg, #000000 -50%, #2bff00 100% )}";
+                tile.style.filter = "blur(4px)";
             }
         }
 });
