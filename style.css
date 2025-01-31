@@ -21,8 +21,8 @@ body {
     border-radius: 5%;
     padding: var(--gap);
     margin: auto;
-    width: calc(7*var(--tileSize)+var(--gap)*6);
-    height: calc(9 * var(--tileSize)+var(--gap)*8);
+    width: max-content;
+    height: max-content;
     overflow: hidden;
 }
 
