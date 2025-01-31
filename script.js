@@ -1,7 +1,6 @@
 const board = document.getElementById("board");
-const playlist = "37i9dQZF1EJypfUGFp2ga5";
+const playlist = "37i9dQZF1EJAnB2jypsBHB";
 //const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
-let accessToken = "";
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -114,5 +113,5 @@ document.addEventListener("drop", (e) => {
     }
 });
 
-init();
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist); 
+init();
