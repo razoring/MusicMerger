@@ -123,8 +123,11 @@ document.addEventListener("touchmove", (e) => {
     console.log("moved");
     e.preventDefault();
     if (!draggedTile) return;
+    console.log("1");
     if (e.target && e.target.classList.contains("tile") && e.target !== draggedTile && !e.target.classList.contains("generator")) {
+        console.log("2");
         if (!e.target.classList.contains("empty")) {
+            console.log("3");
             if (parseInt(e.target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 e.target.style.opacity = "0.5";
                 console.log("found");
