@@ -159,8 +159,8 @@ function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
-        if (tile.style.classList.contains("valid")) {
-            tile.style.classList.remove("valid");
+        if (tile.classList.contains("valid")) {
+            tile.classList.remove("valid");
         }
     }
 
