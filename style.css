@@ -10,20 +10,20 @@ body {
 #board { /*# for single class*/
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 1vw;
+    gap: 1%;
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 1vw;
-    padding: 1vw;
+    border-radius: 1%;
+    padding: 1%;
     margin: auto;
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 .tile { /*. for all classes*/
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: inherit;
-    border-radius: 1vw;
+    border-radius: 1%;
     cursor: grab;
     align-items: center;
     background-size: contain;
