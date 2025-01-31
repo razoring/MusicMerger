@@ -122,7 +122,7 @@ document.addEventListener("dragstart", (e) => {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
-                tile.style.boxShadow = "0 0 15px 5px rgba(30, 215, 96, 0.4)";
+                tile.classList.add("valid");
             }
         }
     }
@@ -159,7 +159,7 @@ function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
-        tile.style.boxShadow = "none";
+        tile.style.classList.remove("valid")
     }
 
     if (!draggedTile) return;
