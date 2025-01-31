@@ -122,7 +122,7 @@ document.addEventListener("dragstart", (e) => {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
-                tile.classList.add("valid");
+                tile.style.boxShadow = "0 0 15px 5px rgba(0, 255, 0, 0.22)";
             }
         }
     }
@@ -139,6 +139,15 @@ document.addEventListener("touchstart", (e) => {
     if (target && !target.classList.contains("generator") && !target.classList.contains("empty")) {
         draggedTile = target;
         target.style.opacity = "0.5";
+    }
+    let tiles = document.getElementById("board").children;
+    for (let tile of tiles) {
+        if (tile !== draggedTile) {
+            tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
+            if (tile.dataset.value == draggedTile.dataset.value) {
+                tile.style.boxShadow = "0 0 15px 5px rgba(0, 255, 0, 0.22)";
+            }
+        }
     }
 });
 document.addEventListener("touchend", (e) => {
@@ -159,10 +168,8 @@ function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
-        if (tile.classList.contains("valid")) {
-            tile.classList.remove("valid");
-            tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
-        }
+        tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
+        tile.style.boxShadow = "none";
     }
 
     if (!draggedTile) return;
