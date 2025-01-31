@@ -119,21 +119,18 @@ document.addEventListener("dragstart", (e) => {
     }
 });
 document.addEventListener("dragover", (e) => e.preventDefault());
-document.addEventListener("touchmove", (e) => {
-    e.preventDefault();
+document.addEventListener("mousemove", (e) => {
     if (!draggedTile) return;
-    console.log(e.target.closest(".tile"));
-    if (e.target && e.target.classList.contains("tile") && e.target !== draggedTile && !e.target.classList.contains("generator")) {
-        console.log("2");
-        if (!e.target.classList.contains("empty")) {
-            console.log("3");
-            if (parseInt(e.target.dataset.value) === parseInt(draggedTile.dataset.value)) {
-                e.target.style.opacity = "0.5";
-                console.log("found");
-            }
-        }
+
+    let targetTile = e.target.closest(".tile");
+    if (!targetTile || targetTile === draggedTile || targetTile.classList.contains("generator")) return;
+
+    document.querySelectorAll(".tile").forEach(tile => tile.style.opacity = "1");
+
+    if (!targetTile.classList.contains("empty") && parseInt(targetTile.dataset.value) === parseInt(draggedTile.dataset.value)) {
+        targetTile.style.opacity = "0.5";
     }
-})
+});
 document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
 });
