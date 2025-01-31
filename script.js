@@ -1,6 +1,6 @@
 const board = document.getElementById("board");
-//const playlist = "37i9dQZF1EJypfUGFp2ga5";
-const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
+const playlist = "37i9dQZF1EJypfUGFp2ga5";
+//const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
 let accessToken = "";
 
 function login(clientId, id) {
