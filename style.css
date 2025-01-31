@@ -18,8 +18,8 @@ body {
     border-radius: 5%;
     padding: 1%;
     margin: auto;
-    width: fit-content;
-    height: fit-content;
+    width: max-content;
+    height: max-content;
 }
 
 .tile { /*. for all classes*/
