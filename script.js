@@ -88,6 +88,7 @@ function init() {
                     tile.dataset.value = Math.round(Math.random() * 5);
                     tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
                 } else {
+                    tile.dataset.value = -1;
                     tile.classList.add("tile", "empty");
                 }
                 board.appendChild(tile);
@@ -112,6 +113,9 @@ document.addEventListener("drop", (e) => {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
+                draggedTile.dataset.value = -1;
+                e.target.dataset.value = e.target.dataset.value + 1;
+                e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`
             }
         }
     }
