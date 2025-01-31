@@ -118,14 +118,14 @@ document.addEventListener("dragstart", (e) => {
         e.target.style.opacity = "0.5";
     }
     let tiles = document.getElementById("board").children;
-        for (let tile of tiles) {
-            if (tile !== draggedTile) {
-                tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
-            } else {
-                tile.style.background = "linear-gradient(-360deg, #000000 -50%, #2bff00 100% )}";
-                tile.style.filter = "blur(4px)";
-            }
+    for (let tile of tiles) {
+        if (tile !== draggedTile) {
+            tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
+        } else {
+            tile.style.background = "linear-gradient(-360deg, #000000 -50%, #2bff00 100% )}";
+            tile.style.filter = "blur(4px)";
         }
+    }
 });
 document.addEventListener("dragover", (e) => {
     e.preventDefault()
@@ -156,6 +156,7 @@ document.addEventListener("click", (e) => {
 });
 
 function handleTileDrop(target) {
+    let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
     }
