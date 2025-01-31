@@ -84,9 +84,9 @@ function init() {
                 let tile = document.createElement("div");
                 if (rand == 0) {
                     tile.classList.add("tile");
-                    tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
                     tile.setAttribute("draggable", "true");
                     tile.dataset.value = Math.round(Math.random() * 5);
+                    tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
                 } else {
                     tile.classList.add("tile", "empty");
                 }
