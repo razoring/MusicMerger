@@ -103,6 +103,7 @@ document.addEventListener("dragstart", (e) => {
     if (e.target.classList.contains("tile") && !e.target.classList.contains("generator") && !e.target.classList.contains("empty")) {
         draggedTile = e.target;
         e.target.style.opacity = "0.5";
+        console.log(e.target.dataset.value);
     }
 });
 document.addEventListener("drop", (e) => {
