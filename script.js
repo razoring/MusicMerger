@@ -163,4 +163,8 @@ function handleTileDrop(target) {
     draggedTile = null;
 }
 
-login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist); 
+login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
+document.getElementById("clear").addEventListener("click", (e) => {
+    localStorage.clear();
+    login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
+})
