@@ -165,6 +165,7 @@ function handleTileDrop(target) {
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
 document.getElementById("clear").addEventListener("click", (e) => {
-    localStorage.clear();
+    localStorage.removeItem("spotify_access_token");
+    console.log("clicked")
     login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
 })
