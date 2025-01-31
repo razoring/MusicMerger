@@ -12,11 +12,11 @@ body {
 #board { /*# for single class*/
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 0px;
-    grid-template-columns: repeat(7, var(--tileSize));
-    grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 10%;
-    padding: 0px;
+    gap: 1%;
+    grid-template-columns: repeat(7, 10%);
+    grid-template-rows: repeat(9, 10%);
+    border-radius: 5%;
+    padding: 1%;
     margin: auto;
     width: max-content;
 }
