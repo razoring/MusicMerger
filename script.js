@@ -109,8 +109,7 @@ document.addEventListener("drop", (e) => {
     draggedTile.style.opacity = "1";
     if (e.target.classList.contains("tile") && draggedTile && !e.target.classList.contains("generator")) {
         if (!e.target.classList.contains("empty")) {
-            if (e.target.dataset.value == draggedTile.dataset.value) {
-                console.log("found")
+            if (e.target.dataset.value == draggedTile.dataset.value && e.target != draggedTile) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
