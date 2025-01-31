@@ -2,6 +2,7 @@ const board = document.getElementById("board");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let covers = {};
+let emptyTiles = [];
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -73,7 +74,6 @@ function login(clientId, id) {
 
 function init() {
     board.innerHTML = "";
-    const emptyTiles = [];
 
     for (let y = 0; y < 9; y++) {
         for (let x = 0; x < 7; x++) {
@@ -128,6 +128,7 @@ document.addEventListener("drop", (e) => {
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = parseInt(-1);
+                emptyTiles.push(draggedTile);
                 e.target.dataset.value = parseInt(e.target.dataset.value) + 1;
                 e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`;
                 console.log(e.target.dataset.value);
