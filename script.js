@@ -115,7 +115,7 @@ document.addEventListener("drop", (e) => {
                 draggedTile.setAttribute("draggable", "false");
                 draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = -1;
-                e.target.dataset.value = e.target.dataset.value + 1;
+                e.target.dataset.value = add(e.target.dataset.value,1);
                 e.target.style.backgroundImage = `url("${covers[e.target.dataset.value]}")`;
                 console.log(e.target.dataset.value);
             }
