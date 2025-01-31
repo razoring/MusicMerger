@@ -126,9 +126,6 @@ document.addEventListener("dragstart", (e) => {
 });
 document.addEventListener("dragover", (e) => {
     e.preventDefault()
-    for (let tile of tiles) {
-        tile.style.opacity = "1";
-    }
 });
 document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
@@ -156,6 +153,10 @@ document.addEventListener("click", (e) => {
 });
 
 function handleTileDrop(target) {
+    for (let tile of tiles) {
+        tile.style.opacity = "1";
+    }
+    
     if (!draggedTile) return;
     draggedTile.style.opacity = "1";
 
