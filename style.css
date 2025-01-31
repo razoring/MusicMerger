@@ -34,7 +34,7 @@ body {
     cursor: grab;
     align-items: center;
     background-size: contain;
-    padding: 0; /* Remove padding */
+    padding: 0;
 }
 
 .tile.valid::after {

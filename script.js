@@ -123,6 +123,7 @@ document.addEventListener("dragstart", (e) => {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
                 tile.classList.add("valid");
+                tile.style.backgroundImage = null;
             }
         }
     }
@@ -161,6 +162,7 @@ function handleTileDrop(target) {
         tile.style.opacity = "1";
         if (tile.classList.contains("valid")) {
             tile.classList.remove("valid");
+            tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
         }
     }
 
