@@ -1,5 +1,6 @@
 :root {
     --tileSize: 50px;
+    --gap: 5px;
 }
 
 body {
@@ -14,14 +15,14 @@ body {
 #board {
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 5px;
+    gap: var(--gap);
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
     border-radius: 5%;
-    padding: 5px;
+    padding: var(--gap);
     margin: auto;
-    width: calc(7 * var(--tileSize) + 12px); /* Account for gap */
-    height: calc(9 * var(--tileSize) + 16px);
+    width: calc(7*var(--tileSize)+var(--gap)*6);
+    height: calc(9 * var(--tileSize)+var(--gap)*8);
     overflow: hidden;
 }
 
