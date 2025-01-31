@@ -52,7 +52,7 @@ body {
     background: linear-gradient(-365deg, #00f0b4 0%, #00ff04 100% );
     background-image: none;
     transform: translate3d(0px, 0px, 0) scale(0.92);
-    filter: blur(15px);
+    filter: blur(5px);
     opacity: var(1);
     transition: opacity 0.3s;
 }
