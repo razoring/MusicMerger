@@ -156,10 +156,8 @@ function handleTileDrop(target) {
     for (let tile of tiles) {
         tile.style.opacity = "1";
     }
-    
-    if (!draggedTile) return;
-    draggedTile.style.opacity = "1";
 
+    if (!draggedTile) return;
     if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
         if (!target.classList.contains("empty")) {
             if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
