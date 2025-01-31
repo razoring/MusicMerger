@@ -1,5 +1,5 @@
 :root {
-    --tileSize: 1vw;
+    --tileSize: 4vw;
 }
 
 body {
@@ -10,11 +10,11 @@ body {
 #board { /*# for single class*/
     display: grid;
     background-color: rgb(29, 29, 29);
-    gap: 1%;
+    gap: 2%;
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 1%;
-    padding: 1%;
+    border-radius: 10%;
+    padding: 2%;
     margin: auto;
     width: min-content;
 }
@@ -23,7 +23,7 @@ body {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: inherit;
-    border-radius: 1%;
+    border-radius: 10%;
     cursor: grab;
     align-items: center;
     background-size: contain;
