@@ -119,6 +119,16 @@ document.addEventListener("dragstart", (e) => {
     }
 });
 document.addEventListener("dragover", (e) => e.preventDefault());
+document.addEventListener("touchmove", (e) => {
+    if (!draggedTile) return;
+    if (e.target && e.target.classList.contains("tile") && e.target !== draggedTile && !e.target.classList.contains("generator")) {
+        if (!e.target.classList.contains("empty")) {
+            if (parseInt(e.target.dataset.value) === parseInt(draggedTile.dataset.value)) {
+                e.target.style.opacity = "0.5";
+            }
+        }
+    }
+})
 document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
 });
