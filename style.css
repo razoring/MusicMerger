@@ -37,12 +37,12 @@ body {
     padding: 0;
 }
 
-.tile.valid::after {
+.tile.valid::before {
     background: linear-gradient(-365deg, #00f0b4 0%, #00ff04 100% );
     background-image: none;
     transform: translate3d(0px, 0px, 0) scale(1);
     filter: blur(5px);
-    opacity: var(1);
+    opacity: 1;
     transition: opacity 0.3s;
 }
 
