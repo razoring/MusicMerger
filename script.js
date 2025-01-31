@@ -121,9 +121,9 @@ document.addEventListener("dragstart", (e) => {
     for (let tile of tiles) {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
-        } else {
-            tile.style.background = "linear-gradient(-360deg, #000000 -50%, #2bff00 100% )}";
-            tile.style.filter = "blur(4px)";
+            if (tile.dataset.value == draggedTile.dataset.value) {
+                tile.style.boxShadow = "0 0 15px 5px rgba(0, 255, 0, 0.7)";
+            }
         }
     }
 });
@@ -159,6 +159,7 @@ function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
+        tile.style.boxShadow = "none";
     }
 
     if (!draggedTile) return;
