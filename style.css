@@ -45,8 +45,8 @@ body {
     padding: 0;
 }
 
-.tile.valid::after {
-    filter: none;
+.tile::after {
+    filter: blur(0px);
 }
 
 .generator {
