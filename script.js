@@ -1,6 +1,6 @@
 const board = document.getElementById("board");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
-const playlist = "24YBBV4AZPFjQ8kaJRlF8v";
+const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let covers = {};
 
 function login(clientId, id) {
@@ -64,7 +64,7 @@ function login(clientId, id) {
         } else {
             console.log("Failed to retrieve artworks.");
         }
-        
+
         init();
     }
 
