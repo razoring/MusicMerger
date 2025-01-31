@@ -2,7 +2,7 @@ const board = document.getElementById("board");
 const playlist = "37i9dQZF1EJypfUGFp2ga5";
 let accessToken = "";
 
-function authenticateAndFetchPlaylist(clientId, playlistUrl) {
+function login(clientId, playlistUrl) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
     const scope = "user-read-private user-read-email";
     const authUrl = `https://accounts.spotify.com/authorize?` +
