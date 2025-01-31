@@ -13,12 +13,12 @@ body {
     display: grid;
     background-color: rgb(29, 29, 29);
     gap: 1%;
-    grid-template-columns: repeat(7, 10%);
-    grid-template-rows: repeat(9, 10%);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     border-radius: 5%;
     padding: 1%;
     margin: auto;
-    width: max-content;
+    width: 100%;
 }
 
 .tile { /*. for all classes*/
