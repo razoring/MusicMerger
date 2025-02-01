@@ -84,8 +84,8 @@ body {
 }
 
 #coinIcon {
+    object-fit: contain;
     aspect-ratio: 1/1;
     width: 30px;
     height: 30px;
-    object-fit: contain;
 }
