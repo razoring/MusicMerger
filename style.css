@@ -73,7 +73,7 @@ body {
 #coinHolder {
     border-radius: 50rem;
     background: #ffffff;
-    width: max-content;
+    width: min-content;
     height: 20px;
     margin: auto;
 }
