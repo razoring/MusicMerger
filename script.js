@@ -144,17 +144,17 @@ document.addEventListener("touchstart", (e) => {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         if (tile !== draggedTile) {
-            tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
+            tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.1";
             if (tile.dataset.value == draggedTile.dataset.value) {
                 //tile.style.boxShadow = "0px 0px 10px 2px rgba(0, 255, 98, 0.46)"; // offset, blur, spread, rgb
-                tile.style.border = "2px solid rgb(255, 255, 255)";
+                //tile.style.border = "1px solid rgb(255, 255, 255)";
                 let hue = 0;
                 if (tileAnimations.has(tile)) {
                     clearInterval(tileAnimations.get(tile));
                 }
                 let interval = setInterval(() => {
                     hue = (hue + 5) % 360;
-                    tile.style.boxShadow = `0px 0px 5px 2px hsla(${hue}, 100%, 50%, 0.7)`;
+                    tile.style.boxShadow = `0px 0px 5px 1px hsla(${hue}, 100%, 50%, 0.7)`;
                 }, 100);
                 tileAnimations.set(tile, interval);
             }
