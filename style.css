@@ -11,6 +11,7 @@ body {
     height: 100%;
     overflow: hidden;
     color: rgb(18, 18, 18);
+    gap: 5px;
 }
 
 #board {
@@ -75,7 +76,7 @@ body {
     display: flex;
     border-radius: 50rem;
     background: #ffffff;
-    width: min-content;
+    width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
     height: 20px;
