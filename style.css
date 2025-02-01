@@ -4,6 +4,7 @@
 }
 
 body {
+    display: inline-block;
     background-color: rgb(18, 18, 18);
     text-align: center;
     justify-content: center;
