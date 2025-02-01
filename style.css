@@ -48,6 +48,25 @@ body {
 }
 
 .empty {
-    background-color: rgb(67, 67, 67);
+    background-color: rgb(35, 35, 35);
     cursor: default;
 }
+
+.regular {
+    font-family: "Belanosima", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.semibold {
+    font-family: "Belanosima", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.bold {
+    font-family: "Belanosima", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
