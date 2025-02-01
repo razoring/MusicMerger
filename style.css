@@ -36,7 +36,7 @@ body {
     align-items: center;
     background-size: contain;
     padding: 0;
-    transition: 500ms;
+    transition: 250ms;
     transform-origin: center center;
 }
 
