@@ -9,7 +9,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    gap: 10px;
     overflow: hidden;
     color: rgb(18, 18, 18);
 }
@@ -72,6 +71,7 @@ body {
 }
 
 #coinHolder {
+    display: inline;
     border-radius: 50rem;
     background: #ffffff;
     width: min-content;
@@ -79,4 +79,9 @@ body {
     padding-right: 10px;
     height: 20px;
     margin: auto;
+}
+
+#coinLabel {
+    height: inherit;
+    aspect-ratio: 1/1;
 }

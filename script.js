@@ -222,7 +222,7 @@ function handleTileDrop(target) {
                 emptyTiles = emptyTiles.filter(tile => tile !== target);
 
                 coins = coins + 1;
-                document.getElementById("coins").textContent = `${coins}`;
+                document.getElementById("coinLabel").textContent = `${coins}`;
             }
         }
     }
