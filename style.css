@@ -74,7 +74,8 @@ body {
     border-radius: 50rem;
     background: #ffffff;
     width: min-content;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     height: 20px;
     margin: auto;
 }
