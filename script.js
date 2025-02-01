@@ -146,12 +146,12 @@ document.addEventListener("touchstart", (e) => {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
                 //tile.style.boxShadow = "0px 0px 10px 2px rgba(0, 255, 98, 0.46)"; // offset, blur, spread, rgb
-                let hue = 0; // Start at red (0° in HSL)
-                setInterval(() => {
-                    hue = (hue + 5) % 360; // Increment hue (loop back after 360°)
+                //tile.style.border = "2px solid rgb(255, 255, 255)";
+                let hue = 0;
+                let cycle = setInterval(() => {
+                    hue = (hue + 5) % 360;
                     tile.style.boxShadow = `0px 0px 15px 5px hsla(${hue}, 100%, 50%, 0.7)`;
                 }, 100);
-                //tile.style.border = "2px solid rgb(255, 255, 255)";
             }
         }
     }
@@ -173,10 +173,11 @@ document.addEventListener("click", (e) => {
 function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
-        tile.style.opacity = "1";
         if (!tile.classList.contains("generator")) {
             tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
         }
+        clearInterval(cycle);
+        tile.style.opacity = "1";
         tile.style.boxShadow = "none";
         tile.style.border = "none";
     }
