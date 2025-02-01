@@ -191,6 +191,7 @@ function handleTileDrop(target) {
                 emptyTiles = emptyTiles.filter(tile => tile !== target);
 
                 coins = coins + 1;
+                document.getElementById("coins").textContent = `Coins: ${coins}`;
             }
         }
     }

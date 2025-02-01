@@ -49,3 +49,7 @@ body {
 .empty {
     cursor: default;
 }
+
+.coins {
+    color: white;
+}
