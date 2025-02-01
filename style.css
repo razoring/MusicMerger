@@ -47,9 +47,10 @@ body {
 }
 
 .empty {
+    background-color: rgb(67, 67, 67);
     cursor: default;
 }
 
-text {
+h1 {
     color: white;
 }
