@@ -145,8 +145,8 @@ document.addEventListener("touchstart", (e) => {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
-                tile.style.boxShadow = "0px 0px 15px 5px rgba(0, 255, 98, 0.46)"; // offset, blur, spread, rgb
-                tile.style.border = "3px solid rgb(199, 255, 182)";
+                tile.style.boxShadow = "0px 0px 10px 2px rgba(0, 255, 98, 0.46)"; // offset, blur, spread, rgb
+                tile.style.border = "2px solid rgb(193, 243, 178)";
             }
         }
     }
