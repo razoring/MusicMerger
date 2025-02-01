@@ -4,6 +4,7 @@ const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let covers = {};
 let emptyTiles = [];
 let coins = 0;
+let cycle = null;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
