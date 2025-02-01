@@ -4,7 +4,7 @@
 }
 
 body {
-    display: inline-block;
+    display: grid;
     background-color: rgb(18, 18, 18);
     text-align: center;
     justify-content: center;
@@ -12,7 +12,7 @@ body {
     height: 100%;
     overflow: hidden;
     color: rgb(18, 18, 18);
-    gap: 5px;
+    gap: 10px;
 }
 
 #board {
