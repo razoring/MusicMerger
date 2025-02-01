@@ -78,10 +78,15 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     height: 20px;
-    margin: auto;
+    margin:auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #coinLabel {
-    height: inherit;
+    height: 25px;
+    width: 25px;
     aspect-ratio: 1/1;
 }
