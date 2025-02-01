@@ -71,6 +71,7 @@ body {
 }
 
 #coinHolder {
+    gap: 5px;
     display: inline;
     border-radius: 50rem;
     background: #ffffff;
@@ -79,12 +80,13 @@ body {
     padding-right: 10px;
     height: 20px;
     margin:auto;
+    align-items: center;
 
 }
 
 #coinIcon {
     aspect-ratio: 1/1;
-    width: 100%;
-    height: 100%;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
 }
