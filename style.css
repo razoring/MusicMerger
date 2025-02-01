@@ -10,6 +10,7 @@ body {
     align-items: center;
     height: 100%;
     overflow: hidden;
+    color: white;
 }
 
 #board {
@@ -49,8 +50,4 @@ body {
 .empty {
     background-color: rgb(67, 67, 67);
     cursor: default;
-}
-
-h1 {
-    color: white;
 }
