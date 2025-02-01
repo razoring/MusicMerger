@@ -146,7 +146,7 @@ document.addEventListener("touchstart", (e) => {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
                 tile.style.boxShadow = "0px 0px 15px 5px rgba(0, 255, 76, 0.37)"; // offset, blur, spread, rgb
-                tile.style.border = "5px solid inherit";
+                tile.style.border = "5px solid rgb(29, 29, 29)";
             }
         }
     }
@@ -169,7 +169,9 @@ function handleTileDrop(target) {
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         tile.style.opacity = "1";
-        tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
+        if (!tile.classList.contains("generator")) {
+            tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
+        }
         tile.style.boxShadow = "none";
         tile.style.border = "none";
     }
