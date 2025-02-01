@@ -123,7 +123,15 @@ document.addEventListener("dragstart", (e) => {
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
-                tile.style.boxShadow = "0 0 15px 5px rgba(0, 255, 0, 0.22)";
+                let hue = 0;
+                if (tileAnimations.has(tile)) {
+                    clearInterval(tileAnimations.get(tile));
+                }
+                let interval = setInterval(() => {
+                    hue = (hue + 5) % 360;
+                    tile.style.boxShadow = `0px 0px 10px 1px hsla(${hue}, 100%, 50%, 0.7)`;
+                }, 100);
+                tileAnimations.set(tile, interval);
             }
         }
     }
@@ -154,7 +162,7 @@ document.addEventListener("touchstart", (e) => {
                 }
                 let interval = setInterval(() => {
                     hue = (hue + 5) % 360;
-                    tile.style.boxShadow = `0px 0px 5px 1px hsla(${hue}, 100%, 50%, 0.7)`;
+                    tile.style.boxShadow = `0px 0px 10px 1px hsla(${hue}, 100%, 50%, 0.7)`;
                 }, 100);
                 tileAnimations.set(tile, interval);
             }
