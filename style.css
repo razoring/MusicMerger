@@ -81,7 +81,6 @@ body {
     height: 20px;
     margin:auto;
     align-items: center;
-
 }
 
 #coinIcon {
@@ -89,5 +88,4 @@ body {
     width: 30px;
     height: 30px;
     object-fit: contain;
-    outline: 5px solid white;
 }
