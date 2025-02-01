@@ -148,7 +148,7 @@ document.addEventListener("touchstart", (e) => {
                 //tile.style.boxShadow = "0px 0px 10px 2px rgba(0, 255, 98, 0.46)"; // offset, blur, spread, rgb
                 //tile.style.border = "2px solid rgb(255, 255, 255)";
                 let hue = 0;
-                let cycle = setInterval(() => {
+                cycle = setInterval(() => {
                     hue = (hue + 5) % 360;
                     tile.style.boxShadow = `0px 0px 15px 5px hsla(${hue}, 100%, 50%, 0.7)`;
                 }, 100);
@@ -165,7 +165,6 @@ document.addEventListener("touchend", (e) => {
 document.addEventListener("click", (e) => {
     if (e.target.id === "clear") {
         localStorage.removeItem("spotify_access_token");
-        console.log("clicked");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
     }
 });
