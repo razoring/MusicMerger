@@ -113,6 +113,7 @@ function init() {
     }
 }
 let draggedTile = null;
+let clonedTile = null;
 document.addEventListener("dragstart", (e) => {
     if (e.target.classList.contains("tile") && !e.target.classList.contains("generator") && !e.target.classList.contains("empty")) {
         draggedTile = e.target;
@@ -149,6 +150,18 @@ document.addEventListener("touchstart", (e) => {
         draggedTile = target;
         target.style.opacity = "0.5";
     }
+
+    clonedTile = target.cloneNode(true);
+    clonedTile.style.position = "absolute";
+    clonedTile.style.width = `${target.offsetWidth}px`; 
+    clonedTile.style.height = `${target.offsetHeight}px`;
+    clonedTile.style.opacity = "0.7";
+    clonedTile.style.pointerEvents = "none";
+    clonedTile.style.zIndex = "999";
+    document.body.appendChild(clonedTile);
+
+    updateClonePosition(e.touches[0]);
+
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         if (tile !== draggedTile) {
@@ -169,11 +182,27 @@ document.addEventListener("touchstart", (e) => {
         }
     }
 });
+document.addEventListener("touchmove", (e) => {
+    if (clonedTile) {
+        updateClonePosition(e.touches[0]);
+    }
+})
 document.addEventListener("touchend", (e) => {
     let touch = e.changedTouches[0];
     let target = document.elementFromPoint(touch.clientX, touch.clientY);
     handleTileDrop(target);
+
+    if (clonedTile) {
+        clonedTile.remove();
+        clonedTile = null;
+    }
+    draggedTile = null;
 });
+
+function updateClonePosition(touch) {
+    clonedTile.style.left = `${touch.clientX - clonedTile.offsetWidth / 2}px`;
+    clonedTile.style.top = `${touch.clientY - clonedTile.offsetHeight / 2}px`;
+}
 
 document.addEventListener("click", (e) => {
     if (e.target.id === "clear") {
