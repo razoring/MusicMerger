@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    gap: 10px;
     overflow: hidden;
     color: rgb(18, 18, 18);
 }
