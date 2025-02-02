@@ -175,6 +175,7 @@ document.addEventListener("click", (e) => {
         localStorage.removeItem("spotify_access_token");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
     } else if (e.target.id == "shop") {
+        console.log("correct ")
         if (coins>=35) {
             coins = coins-35;
             limit = limit+1;
@@ -229,7 +230,7 @@ function handleTileDrop(target) {
             if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
-                //draggedTile.style.backgroundImage = null;
+                draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = "-1";
                 emptyTiles.push(draggedTile);
 
