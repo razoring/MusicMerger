@@ -71,6 +71,7 @@ body {
     transform-origin: center center;
     align-items: center;
     background-size: contain;
+    flex-shrink: 0;
 }
 
 #board {
