@@ -5,7 +5,7 @@ let covers = {};
 let emptyTiles = [];
 let coins = 0;
 let tileAnimations = new Map();
-let limit = 1;
+let limit = 0;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -163,10 +163,9 @@ document.addEventListener("click", (e) => {
             let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
             let value = Math.round(Math.random())*limit;
-            console.log(value);
 
             chosenTile.classList.remove("empty");
-            chosenTile.dataset.value = toString(value);
+            chosenTile.dataset.value = value;
             chosenTile.style.backgroundImage = `url("${covers[value]}")`;
             chosenTile.setAttribute("draggable", "true");
         }
