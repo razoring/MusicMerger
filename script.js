@@ -129,19 +129,21 @@ document.addEventListener("drop", (e) => {
 });
 
 document.addEventListener("touchstart", (e) => {
-    let target = e.target.closest(".tile");
-    handleDragStart(e.target);
+    if (e.target.id!="generator") {
+        let target = e.target.closest(".tile");
+        handleDragStart(e.target);
 
-    clonedTile = target.cloneNode(true);
-    clonedTile.style.position = "absolute";
-    clonedTile.style.width = `${target.offsetWidth}px`; 
-    clonedTile.style.height = `${target.offsetHeight}px`;
-    clonedTile.style.opacity = "0.7";
-    clonedTile.style.pointerEvents = "none";
-    clonedTile.style.zIndex = "999";
-    document.body.appendChild(clonedTile);
+        clonedTile = target.cloneNode(true);
+        clonedTile.style.position = "absolute";
+        clonedTile.style.width = `${target.offsetWidth}px`; 
+        clonedTile.style.height = `${target.offsetHeight}px`;
+        clonedTile.style.opacity = "0.7";
+        clonedTile.style.pointerEvents = "none";
+        clonedTile.style.zIndex = "999";
+        document.body.appendChild(clonedTile);
 
-    updateClonePosition(e.touches[0]);
+        updateClonePosition(e.touches[0]);
+    }
 });
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
