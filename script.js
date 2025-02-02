@@ -179,8 +179,6 @@ function handleDragStart(target) {
     }
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
-        console.log(tile.dataset.value);
-        console.log(draggedTile.dataset.value);
         if (tile.dataset.value != null) {
             if (tile !== draggedTile) {
                 tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
