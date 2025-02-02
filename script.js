@@ -5,7 +5,7 @@ let covers = {};
 let emptyTiles = [];
 let coins = 0;
 let tileAnimations = new Map();
-let limit = 0;
+let limit = 1;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
