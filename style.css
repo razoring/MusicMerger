@@ -44,7 +44,8 @@ body {
     display: block;
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
-    height: calc(9*var(--tileSize)+var(--gap)*7+5*2);
+    /*height: calc(9*var(--tileSize)+var(--gap)*7+5*2);*/
+    height: 650;
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
