@@ -61,6 +61,13 @@ body {
     scrollbar-width: none;
 }
 
+.album {
+    overflow: hidden;
+    width: var(--tileSize);
+    height: var(--tileSize);
+    cursor:not-allowed;
+}
+
 #board {
     display: grid;
     background-color: rgb(29, 29, 29);
