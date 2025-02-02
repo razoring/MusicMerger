@@ -48,6 +48,7 @@ body {
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
+    overflow: scroll;
 }
 
 #board {
@@ -89,7 +90,7 @@ body {
     cursor: default;
 }
 
-.statHolder {
+.stat-holder {
     gap: 5px;
     display: flex;
     border-radius: 50rem;
@@ -104,8 +105,8 @@ body {
 .icon {
     object-fit: contain;
     aspect-ratio: 1/1;
-    width: 30px;
-    height: 30px;
+    width: var(--tileSize);
+    height: var(--tileSize);
 }
 
 #stats {

@@ -1,4 +1,5 @@
 const board = document.getElementById("board");
+const albums = document.getElementById("discs-holder");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let covers = {};
@@ -69,13 +70,22 @@ function login(clientId, id) {
             console.log("Failed to retrieve artworks.");
         }
 
-        init();
+        generate();
     }
 
     initialize();
 }
 
-function init() {
+function populateAlbums() {
+    for (let y = 0;y<7;y++) {
+        let album = document.createElement("div");
+        album.setAttribute("draggable", "false");
+        album.classList.add("tile");
+        albums.appendChild(album);
+    }
+}
+
+function generate() {
     board.innerHTML = "";
 
     for (let y = 0; y < 9; y++) {
@@ -116,6 +126,7 @@ function init() {
         }
     }
 }
+
 let draggedTile = null;
 let clonedTile = null;
 document.addEventListener("dragstart", (e) => {
