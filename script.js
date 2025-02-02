@@ -84,6 +84,21 @@ function init() {
 
             if (x === 0 && y === 0) {
                 tile.classList.add("tile", "generator");
+                tile.addEventListener("click", (e) => {
+                    console.log("hit");
+                    if (emptyTiles.length > 0) {
+                        let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
+
+                        let value = Math.round(Math.random()) * limit;
+
+                        console.log(value);
+                        chosenTile.classList.remove("empty");
+                        chosenTile.dataset.value = value.toString();
+                        chosenTile.style.backgroundImage = `url("${covers[value]}")`;
+                        chosenTile.setAttribute("draggable", "true");
+                    }
+                })
             } else {
                 let rand = Math.round(Math.random());
                 if (rand === 0) {
@@ -155,23 +170,6 @@ document.addEventListener("click", (e) => {
     if (e.target.id == "clear") {
         localStorage.removeItem("spotify_access_token");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
-    }
-    
-    console.log(e.target.id);
-    if (e.target.id == "generator") {
-        console.log("hit");
-        if (emptyTiles.length > 0) {
-            let randomIndex = Math.floor(Math.random() * emptyTiles.length);
-            let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
-
-            let value = Math.round(Math.random()) * limit;
-
-            console.log(value);
-            chosenTile.classList.remove("empty");
-            chosenTile.dataset.value = value.toString();
-            chosenTile.style.backgroundImage = `url("${covers[value]}")`;
-            chosenTile.setAttribute("draggable", "true");
-        }
     }
 });
 
