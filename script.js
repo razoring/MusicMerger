@@ -158,12 +158,14 @@ document.addEventListener("click", (e) => {
     }
     
     if (e.target.id === "generator") {
+        print("hit");
         if (emptyTiles.length > 0) {
             let randomIndex = Math.floor(Math.random() * emptyTiles.length);
             let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
             let value = Math.round(Math.random()) * limit;
 
+            print(value);
             chosenTile.classList.remove("empty");
             chosenTile.dataset.value = value.toString();
             chosenTile.style.backgroundImage = `url("${covers[value]}")`;
@@ -179,6 +181,8 @@ function handleDragStart(target) {
     }
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
+        print(tile.dataset.value);
+        print(draggedTile.dataset.value);
         if (tile !== draggedTile) {
             tile.style.opacity = (tile.dataset.value === draggedTile.dataset.value) ? "1" : "0.3";
             if (tile.dataset.value == draggedTile.dataset.value) {
