@@ -85,6 +85,7 @@ function gameplay() {
             let image = document.createElement("tile","empty");
             image.style.backgroundImage = `url("${covers[y]}")`;
             image.style.filter = 'blur(10px)';
+            album.appendChild(image);
             albums.appendChild(album);
         }
     }
