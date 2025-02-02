@@ -44,7 +44,6 @@ body {
     display: grid;
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
-    display: block;
     height: calc(9*var(--tileSize)+var(--gap)*7+5*2);
     width: auto;
     gap: var(--gap);
