@@ -229,12 +229,16 @@ function handleTileDrop(target) {
             if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
-                draggedTile.style.backgroundImage = "none";
+                draggedTile.style.backgroundImage = null;
                 draggedTile.dataset.value = "-1";
                 emptyTiles.push(draggedTile);
 
                 target.dataset.value = (parseInt(target.dataset.value) + 1).toString();
-                target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
+                if (covers[target.dataset.value]) {
+                    target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
+                } else {
+                    console.error("Invalid cover URL for value:", target.dataset.value);
+                }
                 emptyTiles = emptyTiles.filter(tile => tile !== target);
 
                 coins = coins + 1;
