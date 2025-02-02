@@ -78,7 +78,7 @@ function login(clientId, id) {
 
 function gameplay() {
     function populateAlbums() {
-        for (let y = 0;y<7;y++) {
+        for (let y = 0;y<50;y++) {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
             album.classList.add("tile");
