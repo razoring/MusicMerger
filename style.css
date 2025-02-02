@@ -47,7 +47,7 @@ body {
     /*height: calc(9*var(--tileSize)+var(--gap)*7+5*2);*/
     flex-grow: 1;
     flex-shrink: 1;
-    height: 650px;
+    height: 100%;
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
