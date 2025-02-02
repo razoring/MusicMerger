@@ -37,7 +37,7 @@ body {
     display: flex;
     width: max-content;
     gap: 5px;
-    height: 650px;
+    height: calc(9*var(--tileSize)+var(--gap)*7+5*2);
 }
 
 #discs-holder {
@@ -45,7 +45,9 @@ body {
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
     /*height: calc(9*var(--tileSize)+var(--gap)*7+5*2);*/
-    height: 650px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: calc(9*var(--tileSize)+var(--gap)*7+5*2);
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
