@@ -50,7 +50,7 @@ body {
 }
 
 #discs-holder {
-    display: block;
+    display: grid;
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
     height: calc(9 * var(--tileSize) + 8 * var(--gap));
