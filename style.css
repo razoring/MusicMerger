@@ -1,13 +1,13 @@
 :root {
-    --tileSize: 50px;
+    --tileSize: 40px;
     --gap: 5px;
 }
 
 .icon {
     object-fit: contain;
     aspect-ratio: 1/1;
-    width: var(--tileSize);
-    height: var(--tileSize);
+    width: 30;
+    height: 30;
 }
 
 /* fonts */
