@@ -152,12 +152,13 @@ function updateClonePosition(touch) {
 }
 
 document.addEventListener("click", (e) => {
-    if (e.target.id === "clear") {
+    if (e.target.id == "clear") {
         localStorage.removeItem("spotify_access_token");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
     }
     
-    if (e.target.id === "generator") {
+    print(e.target.id);
+    if (e.target.id == "generator") {
         print("hit");
         if (emptyTiles.length > 0) {
             let randomIndex = Math.floor(Math.random() * emptyTiles.length);
