@@ -34,7 +34,7 @@ body {
 }
 
 #display {
-    display: flex;
+    display: inline-block;
     height: max-content;
     width: max-content;
     gap: 5px;
