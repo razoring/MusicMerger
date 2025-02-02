@@ -157,12 +157,12 @@ document.addEventListener("click", (e) => {
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
     }
     
-    if (e.target.id==="generator") {
+    if (e.target.id === "generator") {
         if (emptyTiles.length > 0) {
             let randomIndex = Math.floor(Math.random() * emptyTiles.length);
             let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
-            let value = Math.round(Math.random())*limit;
+            let value = Math.round(Math.random()) * limit;
 
             chosenTile.classList.remove("empty");
             chosenTile.dataset.value = value.toString();
