@@ -93,4 +93,5 @@ body {
 
 #stats {
     display: flex;
+    gap: 10px;
 }
