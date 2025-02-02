@@ -163,6 +163,7 @@ document.addEventListener("click", (e) => {
             let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
             let value = Math.round(Math.random())*limit;
+            console.log(value);
 
             chosenTile.classList.remove("empty");
             chosenTile.dataset.value = toString(value);
