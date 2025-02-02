@@ -2,6 +2,24 @@
     --tileSize: 40px;
     --gap: 5px;
 }
+/* fonts */
+.regular {
+    font-family: "Belanosima", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.semibold {
+    font-family: "Belanosima", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.bold {
+    font-family: "Belanosima", serif;
+    font-weight: 700;
+    font-style: normal;
+}
 
 body {
     display: grid;
@@ -13,6 +31,19 @@ body {
     overflow: hidden;
     color: rgb(18, 18, 18);
     gap: 10px;
+}
+
+#display {
+    gap: 5px;
+    height: max-content;
+    width: max-content;
+}
+
+#shop-holder {
+    background-color: rgb(29, 29, 29);
+    display: block;
+    height: 100%;
+    width: auto;
 }
 
 #board {
@@ -52,24 +83,6 @@ body {
 .empty {
     background-color: rgb(35, 35, 35);
     cursor: default;
-}
-
-.regular {
-    font-family: "Belanosima", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.semibold {
-    font-family: "Belanosima", serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.bold {
-    font-family: "Belanosima", serif;
-    font-weight: 700;
-    font-style: normal;
 }
 
 .statHolder {
