@@ -229,7 +229,7 @@ function handleTileDrop(target) {
             if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
-                draggedTile.style.backgroundImage = null;
+                draggedTile.style.backgroundImage = "none";
                 draggedTile.dataset.value = "-1";
                 emptyTiles.push(draggedTile);
 
