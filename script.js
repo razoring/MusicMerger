@@ -81,7 +81,7 @@ function gameplay() {
         for (let y = 0;y<50;y++) {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
-            album.classList.add("tile");
+            album.classList.add("tile","empty");
             albums.appendChild(album);
         }
     }
