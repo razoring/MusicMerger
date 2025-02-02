@@ -41,7 +41,7 @@ body {
 }
 
 #discs-holder {
-    display: block;
+    display: grid;
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
     display: block;
@@ -50,10 +50,6 @@ body {
     gap: var(--gap);
     padding: var(--gap);
     overflow-y: scroll;
-}
-
-#discs-holder > * {
-    margin: 0;
 }
 
 #board {
