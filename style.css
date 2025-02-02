@@ -34,7 +34,7 @@ body {
 }
 
 #display {
-    border-radius: 2px;
+    border-radius: 3px;
     display: flex;
     height: max-content;
     width: max-content;
@@ -54,7 +54,7 @@ body {
     gap: var(--gap);
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 2px;
+    border-radius: 3px;
     padding: var(--gap);
     margin: auto;
     width: max-content;
@@ -66,7 +66,7 @@ body {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: rgba(255, 0, 0, 0);
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: grab;
     align-items: center;
     background-size: contain;

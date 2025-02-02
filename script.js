@@ -170,16 +170,9 @@ function updateClonePosition(touch) {
 }
 
 document.addEventListener("click", (e) => {
-    console.log(e.target.id);
     if (e.target.id == "clear") {
         localStorage.removeItem("spotify_access_token");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
-    } else if (e.target.id == "shop") {
-        if (coins>=35) {
-            coins = coins-35;
-            limit = limit+1;
-            document.getElementById("coinLabel").textContent = `${coins}`;
-        }
     }
 });
 
