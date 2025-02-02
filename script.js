@@ -85,7 +85,6 @@ function init() {
             if (x === 0 && y === 0) {
                 tile.classList.add("tile", "generator");
                 tile.addEventListener("click", (e) => {
-                    console.log("hit");
                     if (emptyTiles.length > 0) {
                         let randomIndex = Math.floor(Math.random() * emptyTiles.length);
                         let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
@@ -166,11 +165,9 @@ function updateClonePosition(touch) {
     clonedTile.style.top = `${touch.clientY - clonedTile.offsetHeight / 2}px`;
 }
 
-document.addEventListener("click", (e) => {
-    if (e.target.id == "clear") {
-        localStorage.removeItem("spotify_access_token");
-        login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
-    }
+document.getElementById("clear").addEventListener("click", (e) => {
+    localStorage.removeItem("spotify_access_token");
+    login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
 });
 
 function handleDragStart(target) {
