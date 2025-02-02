@@ -5,6 +5,7 @@ let covers = {};
 let emptyTiles = [];
 let coins = 0;
 let tileAnimations = new Map();
+let limit = 0;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -83,17 +84,6 @@ function init() {
 
             if (x === 0 && y === 0) {
                 tile.classList.add("tile", "generator");
-                tile.addEventListener("click", () => {
-                    if (emptyTiles.length > 0) {
-                        let randomIndex = Math.floor(Math.random() * emptyTiles.length);
-                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
-
-                        chosenTile.classList.remove("empty");
-                        chosenTile.dataset.value = "0";
-                        chosenTile.style.backgroundImage = `url("${covers[0]}")`;
-                        chosenTile.setAttribute("draggable", "true");
-                    }
-                });
             } else {
                 let rand = Math.round(Math.random());
                 if (rand === 0) {
@@ -165,6 +155,20 @@ document.addEventListener("click", (e) => {
     if (e.target.id === "clear") {
         localStorage.removeItem("spotify_access_token");
         login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
+    }
+    
+    if (e.target.id="generator") {
+        if (emptyTiles.length > 0) {
+            let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+            let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
+
+            let value = Math.random(0,limit);
+
+            chosenTile.classList.remove("empty");
+            chosenTile.dataset.value = String.toString(value);
+            chosenTile.style.backgroundImage = `url("${covers[value]}")`;
+            chosenTile.setAttribute("draggable", "true");
+        }
     }
 });
 
