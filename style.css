@@ -34,9 +34,10 @@ body {
 }
 
 #display {
-    gap: 5px;
+    display: flex;
     height: max-content;
     width: max-content;
+    gap: 5px;
 }
 
 #shop-holder {
