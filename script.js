@@ -129,8 +129,9 @@ document.addEventListener("drop", (e) => {
 });
 
 document.addEventListener("touchstart", (e) => {
-    if (e.target.id!="generator") {
-        let target = e.target.closest(".tile");
+    let target = e.target.closest(".tile");
+    console.log(target);
+    if (target != "generator") {
         handleDragStart(e.target);
 
         clonedTile = target.cloneNode(true);
