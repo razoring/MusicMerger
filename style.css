@@ -49,7 +49,7 @@ body {
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
-    overflow: auto;
+    overflow: scroll;
 }
 
 #board {
