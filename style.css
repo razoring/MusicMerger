@@ -1,5 +1,5 @@
 :root {
-    --tileSize: 40px;
+    --tileSize: 35px;
     --gap: 5px;
 }
 /* fonts */
@@ -34,18 +34,27 @@ body {
 }
 
 #display {
-    border-radius: 3px;
     display: flex;
     height: max-content;
     width: max-content;
     gap: 5px;
 }
 
-#shop-holder {
+#discs-holder {
+    border-radius: 5px;
     background-color: rgb(29, 29, 29);
     display: block;
     height: 100%;
     width: auto;
+    gap: 10px;
+}
+
+.album {
+    background-image: url('https://cdn-icons-png.flaticon.com/128/54/54344.png');
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    width: 40px;
+    height: 40px;
 }
 
 #board {
@@ -54,7 +63,7 @@ body {
     gap: var(--gap);
     grid-template-columns: repeat(7, var(--tileSize));
     grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 3px;
+    border-radius: 5px;
     padding: var(--gap);
     margin: auto;
     width: max-content;
