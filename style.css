@@ -45,10 +45,10 @@ body {
     display: block;
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
-    height: calc(9 * var(--tileSize) + 8 * var(--gap) + 2 * var(--gap)); /* Match #board's height */
+    height: calc(9 * var(--tileSize) + 8 * var(--gap));
     width: auto;
     gap: var(--gap);
-    padding: var(--gap); /* Match #board's padding */
+    padding: var(--gap);
     overflow-y: scroll !important;
 }
 
