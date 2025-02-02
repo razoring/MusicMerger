@@ -50,6 +50,7 @@ body {
     gap: var(--gap);
     padding: var(--gap);
     overflow-y: scroll !important;
+    scrollbar-width: none;
 }
 
 #board {
