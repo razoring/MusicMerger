@@ -178,6 +178,7 @@ document.addEventListener("click", (e) => {
         if (coins>=35) {
             coins = coins-35;
             limit = limit+1;
+            document.getElementById("coinLabel").textContent = `${coins}`;
         }
     }
 });
@@ -229,7 +230,7 @@ function handleTileDrop(target) {
             if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
                 draggedTile.classList.add("empty");
                 draggedTile.setAttribute("draggable", "false");
-                draggedTile.style.backgroundImage = null;
+                draggedTile.style.backgroundImage = "none";
                 draggedTile.dataset.value = "-1";
                 emptyTiles.push(draggedTile);
 
