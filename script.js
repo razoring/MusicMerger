@@ -78,10 +78,15 @@ function login(clientId, id) {
 
 function gameplay() {
     function populateAlbums() {
-        for (let y = 50;y>0;y--) {
+        for (let y = 49;y>0;y--) {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
             album.classList.add("album");
+
+            if (y<=0) {
+                album.backgroundImage = `url("images/end.png")`;
+            }
+
             let image = document.createElement("div");
             image.classList.add("tile", "empty");
             image.style.backgroundImage = `url("${covers[y]}")`;
