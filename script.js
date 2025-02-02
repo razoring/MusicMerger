@@ -70,61 +70,66 @@ function login(clientId, id) {
             console.log("Failed to retrieve artworks.");
         }
 
-        generate();
+        gameplay();
     }
 
     initialize();
 }
 
-function populateAlbums() {
-    for (let y = 0;y<7;y++) {
-        let album = document.createElement("div");
-        album.setAttribute("draggable", "false");
-        album.classList.add("tile");
-        albums.appendChild(album);
-    }
-}
-
-function generate() {
-    board.innerHTML = "";
-
-    for (let y = 0; y < 9; y++) {
-        for (let x = 0; x < 7; x++) {
-            let tile = document.createElement("div");
-
-            if (x === 0 && y === 0) {
-                tile.classList.add("tile", "generator");
-                tile.addEventListener("click", (e) => {
-                    if (emptyTiles.length > 0) {
-                        let randomIndex = Math.floor(Math.random() * emptyTiles.length);
-                        let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
-
-                        let value = Math.round(Math.random()) * limit;
-
-                        console.log(value);
-                        chosenTile.classList.remove("empty");
-                        chosenTile.dataset.value = value.toString();
-                        chosenTile.style.backgroundImage = `url("${covers[value]}")`;
-                        chosenTile.setAttribute("draggable", "true");
-                    }
-                })
-            } else {
-                let rand = Math.round(Math.random());
-                if (rand === 0) {
-                    tile.classList.add("tile");
-                    tile.setAttribute("draggable", "true");
-                    tile.dataset.value = Math.floor(Math.random() * 5);
-                    tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
-                } else {
-                    tile.classList.add("tile", "empty");
-                    tile.dataset.value = "-1";
-                    emptyTiles.push(tile);
-                }
-            }
-
-            board.appendChild(tile);
+function gameplay() {
+    function populateAlbums() {
+        for (let y = 0;y<7;y++) {
+            let album = document.createElement("div");
+            album.setAttribute("draggable", "false");
+            album.classList.add("tile");
+            albums.appendChild(album);
         }
     }
+    
+    function generate() {
+        board.innerHTML = "";
+    
+        for (let y = 0; y < 9; y++) {
+            for (let x = 0; x < 7; x++) {
+                let tile = document.createElement("div");
+    
+                if (x === 0 && y === 0) {
+                    tile.classList.add("tile", "generator");
+                    tile.addEventListener("click", (e) => {
+                        if (emptyTiles.length > 0) {
+                            let randomIndex = Math.floor(Math.random() * emptyTiles.length);
+                            let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
+    
+                            let value = Math.round(Math.random()) * limit;
+    
+                            console.log(value);
+                            chosenTile.classList.remove("empty");
+                            chosenTile.dataset.value = value.toString();
+                            chosenTile.style.backgroundImage = `url("${covers[value]}")`;
+                            chosenTile.setAttribute("draggable", "true");
+                        }
+                    })
+                } else {
+                    let rand = Math.round(Math.random());
+                    if (rand === 0) {
+                        tile.classList.add("tile");
+                        tile.setAttribute("draggable", "true");
+                        tile.dataset.value = Math.floor(Math.random() * 5);
+                        tile.style.backgroundImage = `url("${covers[tile.dataset.value]}")`;
+                    } else {
+                        tile.classList.add("tile", "empty");
+                        tile.dataset.value = "-1";
+                        emptyTiles.push(tile);
+                    }
+                }
+    
+                board.appendChild(tile);
+            }
+        }
+    }
+
+    populateAlbums();
+    generate();
 }
 
 let draggedTile = null;
