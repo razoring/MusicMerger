@@ -43,7 +43,7 @@ body {
 
 #display {
     display: flex;
-    align-items: flex-start; /* Prevent stretching */
+    align-items: flex-start;
     height: max-content;
     width: max-content;
     gap: 5px;
