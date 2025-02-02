@@ -165,7 +165,7 @@ document.addEventListener("click", (e) => {
             let value = Math.random(0,limit);
 
             chosenTile.classList.remove("empty");
-            chosenTile.dataset.value = String.toString(value);
+            chosenTile.dataset.value = value;
             chosenTile.style.backgroundImage = `url("${covers[value]}")`;
             chosenTile.setAttribute("draggable", "true");
         }
