@@ -162,10 +162,10 @@ document.addEventListener("click", (e) => {
             let randomIndex = Math.floor(Math.random() * emptyTiles.length);
             let chosenTile = emptyTiles.splice(randomIndex, 1)[0];
 
-            let value = Math.random(0,limit);
+            let value = Math.round(Math.random())*limit;
 
             chosenTile.classList.remove("empty");
-            chosenTile.dataset.value = value;
+            chosenTile.dataset.value = toString(value);
             chosenTile.style.backgroundImage = `url("${covers[value]}")`;
             chosenTile.setAttribute("draggable", "true");
         }
