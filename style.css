@@ -67,6 +67,10 @@ body {
     width: var(--tileSize);
     height: var(--tileSize);
     cursor:not-allowed !important;
+    border-radius: 5px;
+    transform-origin: center center;
+    align-items: center;
+    background-size: contain;
 }
 
 #board {
