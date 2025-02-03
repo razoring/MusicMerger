@@ -193,7 +193,6 @@ document.addEventListener("touchstart", (e) => {
     }
 });
 document.addEventListener("touchmove", (e) => {
-
     let touchX = e.touches[0].clientX;
     let touchY = e.touches[0].clientY;
 
@@ -207,11 +206,10 @@ document.addEventListener("touchmove", (e) => {
     // check if touch is still in holder
     let elementUnderTouch = document.elementFromPoint(touchX, touchY);
     if (!discsHolder.contains(elementUnderTouch)) {
-        console.log("User left the discs-holder: Dragging detected.");
-    }
-
-    if (clonedTile) {
-        updateClonePosition(e.touches[0]);
+        isDragging = true;
+        if (clonedTile) {
+            updateClonePosition(e.touches[0]);
+        }
     }
 })
 document.addEventListener("touchend", (e) => {
