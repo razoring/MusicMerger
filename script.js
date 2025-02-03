@@ -81,7 +81,7 @@ function gameplay() {
     function populateAlbums() {
         for (let y = covers.length-1;y>=0;y--) {
             let album = document.createElement("div");
-            album.setAttribute("draggable", "true");
+            album.setAttribute("draggable", "false");
             album.classList.add("album");
             album.dataset.value = y.toString();
             let image = document.createElement("div");
@@ -91,7 +91,7 @@ function gameplay() {
             album.appendChild(image);
             albums.appendChild(album);
 
-            if (album.dataset.value<5) {
+            if (album.dataset.value<=4) {
                 discovered.push(album);
             }
         }
@@ -283,12 +283,14 @@ function refreshDiscs() {
                     icon.style.filter = "brightness(25%)";
                 }
             }
+            lastDiscoveredAlbum.setAttribute("draggable","false");
             lastDiscoveredAlbum = album;
         }
     }
 
     if (lastDiscoveredAlbum) {
         lastDiscoveredAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
+        lastDiscoveredAlbum.setAttribute("draggable","true");
     }
 }
 
