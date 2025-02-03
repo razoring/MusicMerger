@@ -283,8 +283,8 @@ function refreshDiscs() {
                     icon.style.filter = "brightness(25%)";
                 }
             }
-            lastDiscoveredAlbum.setAttribute("draggable","false");
             lastDiscoveredAlbum = album;
+            lastDiscoveredAlbum.setAttribute("draggable","false");
         }
     }
 
