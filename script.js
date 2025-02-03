@@ -193,6 +193,10 @@ document.addEventListener("touchstart", (e) => {
     }
 });
 document.addEventListener("touchmove", (e) => {
+    if (clonedTile) {
+        updateClonePosition(e.touches[0]);
+    }
+    
     let touchX = e.touches[0].clientX;
     let touchY = e.touches[0].clientY;
 
@@ -207,9 +211,6 @@ document.addEventListener("touchmove", (e) => {
     let elementUnderTouch = document.elementFromPoint(touchX, touchY);
     if (!discsHolder.contains(elementUnderTouch)) {
         isDragging = true;
-        if (clonedTile) {
-            updateClonePosition(e.touches[0]);
-        }
     }
 })
 document.addEventListener("touchend", (e) => {
