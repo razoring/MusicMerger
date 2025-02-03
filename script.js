@@ -161,50 +161,70 @@ document.addEventListener("drop", (e) => {
 let startX = 0, startY = 0;
 let isDragging = false;
 let discsHolder = document.querySelector(".discs-holder");
-
 document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
-    if (tile != null && album != null) {
-        let albumIndex = parseInt(album.dataset.value);
-        if (albumIndex !== covers.length - 1) {
-            return; // Only allow dragging for the topmost visible album
-        }
-
+    if (tile) {
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
-        isDragging = false; // Reset dragging state
+        isDragging = false;
+
+        if (album) {
+            if (parseInt(album.dataset.value)!=discovered.length) {
+                return;
+            }
+        }
+
+        if (!tile.classList.contains("generator")) {
+            handleDragStart(e.target);
+
+            clonedTile = tile.cloneNode(true);
+            clonedTile.style.position = "absolute";
+            clonedTile.style.width = `${tile.offsetWidth}px`; 
+            clonedTile.style.height = `${tile.offsetHeight}px`;
+            clonedTile.style.opacity = "0.7";
+            clonedTile.style.pointerEvents = "none";
+            clonedTile.style.zIndex = "999";
+            document.body.appendChild(clonedTile);
+
+            updateClonePosition(e.touches[0]);
+        }
     }
 });
-
 document.addEventListener("touchmove", (e) => {
+
     let touchX = e.touches[0].clientX;
     let touchY = e.touches[0].clientY;
 
     let deltaX = Math.abs(touchX - startX);
     let deltaY = Math.abs(touchY - startY);
 
-    // If the user moves more than a threshold (e.g., 10px), consider it a drag
     if (deltaX > 10 || deltaY > 10) {
         isDragging = true;
     }
 
-    // Check if the touch is still inside .discs-holder
+    // check if touch is still in holder
     let elementUnderTouch = document.elementFromPoint(touchX, touchY);
     if (!discsHolder.contains(elementUnderTouch)) {
         console.log("User left the discs-holder: Dragging detected.");
     }
-});
 
-document.addEventListener("touchend", (e) => {
-    if (isDragging) {
-        console.log("Drag detected!");
-    } else {
-        console.log("Scroll detected.");
+    if (clonedTile) {
+        updateClonePosition(e.touches[0]);
     }
-});
+})
+document.addEventListener("touchend", (e) => {
+    let touch = e.changedTouches[0];
+    let target = document.elementFromPoint(touch.clientX, touch.clientY);
+    handleTileDrop(target);
 
+    if (clonedTile) {
+        clonedTile.remove();
+        clonedTile = null;
+    }
+    draggedTile = null;
+});
 
 function updateClonePosition(touch) {
     clonedTile.style.left = `${touch.clientX - clonedTile.offsetWidth / 2}px`;
@@ -304,10 +324,12 @@ function refreshDiscs() {
         }
     }
 
-    if (lastVisibleAlbum) {
-        lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
-        lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
-        lastVisibleAlbum.setAttribute("draggable", "true"); 
+    if (!isDragging) {
+        if (lastVisibleAlbum) {
+            lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
+            lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
+            lastVisibleAlbum.setAttribute("draggable", "true"); 
+        }
     }
 }
 
