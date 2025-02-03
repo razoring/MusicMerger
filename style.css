@@ -56,7 +56,7 @@ body {
     background-color: rgb(29, 29, 29);
     height: calc(9 * var(--tileSize) + 8 * var(--gap));
     width: auto;
-    gap: 15;
+    gap: var(--gap);
     padding: var(--gap);
     overflow-y: scroll !important;
     scrollbar-width: none;
