@@ -96,6 +96,7 @@ function gameplay() {
             }
         }
 
+        console.log(covers[0]);
         refreshDiscs();
     }
     
@@ -282,6 +283,7 @@ function refreshDiscs() {
             }
         }
     }
+    document.getElementById("discs-holder").scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
