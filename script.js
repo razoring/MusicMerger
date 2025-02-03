@@ -274,25 +274,26 @@ function handleTileDrop(target) {
 function refreshDiscs() {
     let albums = document.getElementById("discs-holder").children;
     let lastAlbum = null;
-    let lastIcon = null;
 
     for (let album of albums) {
-        if (album.dataset.value <= discovered.length) {
+        if (album.dataset.value <= discovered.length-1) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
-                icon.setAttribute("draggable","false");
+                lastAlbum.setAttribute("draggable","false");
                 if (album.dataset.value < discovered.length) {
                     icon.style.filter = "brightness(25%)";
                 }
-                lastIcon = icon;
             }
-            lastAlbum = album;
+            if (album.dataset.value==discovered.length-1) {
+                lastAlbum = album;
+            }
         }
     }
 
-    if (lastAlbum && lastIcon) {
+    if (lastAlbum) {
+        lastAlbum.style = `url("${cover[discovered.length-1]}")`;
         lastAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
-        lastIcon.setAttribute("draggable","true");
+        lastAlbum.setAttribute("draggable","true");
     }
 }
 
