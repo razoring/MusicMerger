@@ -291,7 +291,7 @@ function refreshDiscs() {
     }
 
     if (lastAlbum) {
-        lastAlbum.style = `url("${cover[discovered.length-1]}")`;
+        lastAlbum.style = `url("${covers[discovered.length-1]}")`;
         lastAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
         lastAlbum.setAttribute("draggable","true");
     }
