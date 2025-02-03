@@ -273,29 +273,29 @@ function handleTileDrop(target) {
 
 function refreshDiscs() {
     let albums = document.getElementById("discs-holder").children;
-    let lastAlbum = null;
+    let lastVisibleAlbum = null;
 
     for (let album of albums) {
-        album.setAttribute("draggable","false");
+        album.setAttribute("draggable", "false"); // Start by disabling drag on all albums
+
         if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
                 if (album.dataset.value < discovered.length) {
                     icon.style.filter = "brightness(25%)";
+                } else {
+                    icon.style.filter = "brightness(100%)"; // Clear and bright album
+                    lastVisibleAlbum = album; // Mark the last fully visible album
                 }
-            }
-            if (parseInt(album.dataset.value) === discovered.length - 1) {
-                lastAlbum = album;
             }
         }
     }
 
-    if (lastAlbum) {
-        lastAlbum.style.backgroundImage = `url("${covers[discovered.length-1]}")`;
-        lastAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
-        lastAlbum.setAttribute("draggable","true");
+    if (lastVisibleAlbum) {
+        lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
+        lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
+        lastVisibleAlbum.setAttribute("draggable", "true"); // Only last fully visible album is draggable
     }
 }
-
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
