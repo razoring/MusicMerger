@@ -196,7 +196,7 @@ document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
         updateClonePosition(e.touches[0]);
     }
-    
+
     let touchX = e.touches[0].clientX;
     let touchY = e.touches[0].clientY;
 
@@ -332,4 +332,7 @@ function refreshDiscs() {
     }
 }
 
+var doc = document.documentElement;
+doc.requestFullscreen();
+doc.webkitRequestFullscreen();
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
