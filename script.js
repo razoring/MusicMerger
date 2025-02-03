@@ -276,7 +276,7 @@ function refreshDiscs() {
     let lastAlbum = null;
 
     for (let album of albums) {
-        if (album.dataset.value <= discovered.length-1) {
+        if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
                 album.setAttribute("draggable","false");
