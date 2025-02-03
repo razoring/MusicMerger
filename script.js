@@ -7,6 +7,7 @@ let emptyTiles = [];
 let coins = 0;
 let tileAnimations = new Map();
 let limit = 0;
+let discovered = 5;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -82,6 +83,7 @@ function gameplay() {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
             album.classList.add("album");
+            album.dataset.value = y.toString();
             let image = document.createElement("div");
             image.classList.add("tile", "empty");
             image.style.backgroundImage = `url("${covers[y]}")`;
@@ -236,6 +238,15 @@ function handleTileDrop(target) {
         tile.style.opacity = "1";
         tile.style.boxShadow = "none";
         tile.style.border = "none";
+    }
+
+    let albums = document.getElementById("discs-holder").children;
+    for (let album of albums) {
+        if (album.dataset.value <= discovered) {
+            for (let icon of album.children) {
+                icon.style.filter = "blur(0px)";
+            }
+        }
     }
 
     if (!draggedTile) return;
