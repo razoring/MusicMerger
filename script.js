@@ -86,7 +86,7 @@ function gameplay() {
             album.dataset.value = y.toString();
             let image = document.createElement("div");
             image.classList.add("tile", "empty");
-            image.style.backgroundImage = `url("${covers[(50-y)]}")`;
+            image.style.backgroundImage = `url("${covers[y]}")`;
             image.style.filter = 'blur(10px)';
             album.appendChild(image);
             albums.appendChild(album);
