@@ -276,15 +276,15 @@ function refreshDiscs() {
     let lastAlbum = null;
 
     for (let album of albums) {
+        album.setAttribute("draggable","false");
         if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
-                album.setAttribute("draggable","false");
                 if (album.dataset.value < discovered.length) {
                     icon.style.filter = "brightness(25%)";
                 }
             }
-            if (album.dataset.value==discovered.length-1) {
+            if (parseInt(album.dataset.value) === discovered.length - 1) {
                 lastAlbum = album;
             }
         }
