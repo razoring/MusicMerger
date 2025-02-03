@@ -162,11 +162,12 @@ document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
+    console.log(album);
+
     if (tile != null && album != null) {
-        // Ensure this is the top visible album
         let albumIndex = parseInt(album.dataset.value);
         if (albumIndex !== covers.length - 1) {
-            return; // Stop execution if this is NOT the last (visible) album
+            return;
         }
 
         e.preventDefault();
