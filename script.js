@@ -162,6 +162,11 @@ document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
+    console.log(tile);
+    console.log(album);
+    console.log(album.dataset.value);
+    console.log(discovered);
+
     if (tile) {
         e.preventDefault();
         if (parseInt(album.dataset.value)!=discovered.length) {
