@@ -158,49 +158,53 @@ document.addEventListener("drop", (e) => {
     handleTileDrop(e.target);
 });
 
+let startX = 0, startY = 0;
+let isDragging = false;
+let discsHolder = document.querySelector(".discs-holder");
+
 document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
-    if (tile) {
-        if (album) {
-            if (parseInt(album.dataset.value)!=discovered.length) {
-                return;
-            }
+    if (tile != null && album != null) {
+        let albumIndex = parseInt(album.dataset.value);
+        if (albumIndex !== covers.length - 1) {
+            return; // Only allow dragging for the topmost visible album
         }
 
-        if (!tile.classList.contains("generator")) {
-            handleDragStart(e.target);
-
-            clonedTile = tile.cloneNode(true);
-            clonedTile.style.position = "absolute";
-            clonedTile.style.width = `${tile.offsetWidth}px`; 
-            clonedTile.style.height = `${tile.offsetHeight}px`;
-            clonedTile.style.opacity = "0.7";
-            clonedTile.style.pointerEvents = "none";
-            clonedTile.style.zIndex = "999";
-            document.body.appendChild(clonedTile);
-
-            updateClonePosition(e.touches[0]);
-        }
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = false; // Reset dragging state
     }
 });
+
 document.addEventListener("touchmove", (e) => {
-    if (clonedTile) {
-        updateClonePosition(e.touches[0]);
-    }
-})
-document.addEventListener("touchend", (e) => {
-    let touch = e.changedTouches[0];
-    let target = document.elementFromPoint(touch.clientX, touch.clientY);
-    handleTileDrop(target);
+    let touchX = e.touches[0].clientX;
+    let touchY = e.touches[0].clientY;
 
-    if (clonedTile) {
-        clonedTile.remove();
-        clonedTile = null;
+    let deltaX = Math.abs(touchX - startX);
+    let deltaY = Math.abs(touchY - startY);
+
+    // If the user moves more than a threshold (e.g., 10px), consider it a drag
+    if (deltaX > 10 || deltaY > 10) {
+        isDragging = true;
     }
-    draggedTile = null;
+
+    // Check if the touch is still inside .discs-holder
+    let elementUnderTouch = document.elementFromPoint(touchX, touchY);
+    if (!discsHolder.contains(elementUnderTouch)) {
+        console.log("User left the discs-holder: Dragging detected.");
+    }
 });
+
+document.addEventListener("touchend", (e) => {
+    if (isDragging) {
+        console.log("Drag detected!");
+    } else {
+        console.log("Scroll detected.");
+    }
+});
+
 
 function updateClonePosition(touch) {
     clonedTile.style.left = `${touch.clientX - clonedTile.offsetWidth / 2}px`;
