@@ -161,15 +161,20 @@ document.addEventListener("drop", (e) => {
 document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
-    if (tile != null) {
-        for (let icon in album) {
+
+    if (tile != null && album != null) {
+        let inside = false;
+        for (let icon of album.children) {
             if (icon === tile) {
-                if (parseInt(album.dataset.value) == covers.length-1) {
-                    continue;
-                } else {
-                    return;
-                }
+                inside = true;
+                break;
             }
+        }
+
+        if (!inside) return;
+
+        if (parseInt(album.dataset.value) !== covers.length - 1) {
+            return;
         }
 
         e.preventDefault();
@@ -189,6 +194,7 @@ document.addEventListener("touchstart", (e) => {
         }
     }
 });
+
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
         e.preventDefault();
