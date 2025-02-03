@@ -169,8 +169,10 @@ document.addEventListener("touchstart", (e) => {
 
     if (tile) {
         e.preventDefault();
-        if (parseInt(album.dataset.value)!=discovered.length) {
-            return;
+        if (album) {
+            if (parseInt(album.dataset.value)!=discovered.length) {
+                return;
+            }
         }
 
         if (!tile.classList.contains("generator")) {
