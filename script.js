@@ -163,7 +163,6 @@ document.addEventListener("touchstart", (e) => {
     let album = e.target.closest(".album");
 
     if (tile) {
-        e.preventDefault();
         if (album) {
             if (parseInt(album.dataset.value)!=discovered.length) {
                 return;
@@ -188,7 +187,6 @@ document.addEventListener("touchstart", (e) => {
 });
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
-        e.preventDefault();
         updateClonePosition(e.touches[0]);
     }
 })
