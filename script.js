@@ -91,6 +91,7 @@ function gameplay() {
             album.appendChild(image);
             albums.appendChild(album);
         }
+        refreshDiscs();
     }
     
     function generate() {
@@ -226,6 +227,8 @@ function handleDragStart(target) {
 }
 
 function handleTileDrop(target) {
+    refreshDiscs()
+
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
         if (!tile.classList.contains("generator")) {
@@ -238,15 +241,6 @@ function handleTileDrop(target) {
         tile.style.opacity = "1";
         tile.style.boxShadow = "none";
         tile.style.border = "none";
-    }
-
-    let albums = document.getElementById("discs-holder").children;
-    for (let album of albums) {
-        if (album.dataset.value <= discovered) {
-            for (let icon of album.children) {
-                icon.style.filter = "blur(0px)";
-            }
-        }
     }
 
     if (!draggedTile) return;
@@ -269,6 +263,20 @@ function handleTileDrop(target) {
         }
     }
     draggedTile = null;
+}
+
+function refreshDiscs() {
+    let albums = document.getElementById("discs-holder").children;
+    for (let album of albums) {
+        if (album.dataset.value <= discovered) {
+            for (let icon of album.children) {
+                icon.style.filter = "blur(0px)";
+                if (album.dataset.value<discovered) {
+                    icon.style.filter = "brightness(25%)";
+                }
+            }
+        }
+    }
 }
 
 login("3905c0ce1dbf43dd92ca5c4d200984a0", playlist);
