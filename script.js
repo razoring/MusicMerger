@@ -161,6 +161,7 @@ document.addEventListener("drop", (e) => {
 document.addEventListener("touchstart", (e) => {
     let target = e.target.closest(".tile");
     if (target != null) {
+        e.preventDefault();
         if (!target.classList.contains("generator")) {
             handleDragStart(e.target);
 
@@ -179,6 +180,7 @@ document.addEventListener("touchstart", (e) => {
 });
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
+        e.preventDefault();
         updateClonePosition(e.touches[0]);
     }
 })
@@ -268,6 +270,7 @@ function handleTileDrop(target) {
             }
         }
     }
+
     draggedTile = null;
 }
 
@@ -276,7 +279,7 @@ function refreshDiscs() {
     let lastVisibleAlbum = null;
 
     for (let album of albums) {
-        album.setAttribute("draggable", "false"); // Start by disabling drag on all albums
+        album.setAttribute("draggable", "false");
 
         if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
@@ -284,8 +287,8 @@ function refreshDiscs() {
                 if (album.dataset.value < discovered.length) {
                     icon.style.filter = "brightness(25%)";
                 } else {
-                    icon.style.filter = "brightness(100%)"; // Clear and bright album
-                    lastVisibleAlbum = album; // Mark the last fully visible album
+                    icon.style.filter = "brightness(100%)"; 
+                    lastVisibleAlbum = album; 
                 }
             }
         }
@@ -294,7 +297,7 @@ function refreshDiscs() {
     if (lastVisibleAlbum) {
         lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
         lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
-        lastVisibleAlbum.setAttribute("draggable", "true"); // Only last fully visible album is draggable
+        lastVisibleAlbum.setAttribute("draggable", "true"); 
     }
 }
 
