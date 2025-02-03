@@ -162,12 +162,14 @@ document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
+    console.log(tile);
     console.log(album);
 
-    if (tile != null && album != null) {
-        let albumIndex = parseInt(album.dataset.value);
-        if (albumIndex !== covers.length - 1) {
-            return;
+    if (tile != null) {
+        for (let icon in album.children) {
+            if (icon.style.backgroundImage == tile.style.backgroundImage) {
+                console.log(true);
+            }
         }
 
         e.preventDefault();
@@ -187,8 +189,6 @@ document.addEventListener("touchstart", (e) => {
         }
     }
 });
-
-
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
         e.preventDefault();
@@ -196,7 +196,6 @@ document.addEventListener("touchmove", (e) => {
     }
 })
 document.addEventListener("touchend", (e) => {
-    e.preventDefault();
     let touch = e.changedTouches[0];
     let target = document.elementFromPoint(touch.clientX, touch.clientY);
     handleTileDrop(target);
