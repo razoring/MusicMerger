@@ -163,18 +163,10 @@ document.addEventListener("touchstart", (e) => {
     let album = e.target.closest(".album");
 
     if (tile != null && album != null) {
-        let inside = false;
-        for (let icon of album.children) {
-            if (icon === tile) {
-                inside = true;
-                break;
-            }
-        }
-
-        if (!inside) return;
-
-        if (parseInt(album.dataset.value) !== covers.length - 1) {
-            return;
+        // Ensure this is the top visible album
+        let albumIndex = parseInt(album.dataset.value);
+        if (albumIndex !== covers.length - 1) {
+            return; // Stop execution if this is NOT the last (visible) album
         }
 
         e.preventDefault();
@@ -195,6 +187,7 @@ document.addEventListener("touchstart", (e) => {
     }
 });
 
+
 document.addEventListener("touchmove", (e) => {
     if (clonedTile) {
         e.preventDefault();
@@ -202,6 +195,7 @@ document.addEventListener("touchmove", (e) => {
     }
 })
 document.addEventListener("touchend", (e) => {
+    e.preventDefault();
     let touch = e.changedTouches[0];
     let target = document.elementFromPoint(touch.clientX, touch.clientY);
     handleTileDrop(target);
