@@ -159,16 +159,27 @@ document.addEventListener("drop", (e) => {
 });
 
 document.addEventListener("touchstart", (e) => {
-    let target = e.target.closest(".tile");
-    if (target != null) {
+    let tile = e.target.closest(".tile");
+    let album = e.target.closest(".album");
+    if (tile != null) {
+        for (let icon in album) {
+            if (icon === tile) {
+                if (parseInt(album.dataset.value) == covers.length-1) {
+                    continue;
+                } else {
+                    return;
+                }
+            }
+        }
+
         e.preventDefault();
-        if (!target.classList.contains("generator")) {
+        if (!tile.classList.contains("generator")) {
             handleDragStart(e.target);
 
-            clonedTile = target.cloneNode(true);
+            clonedTile = tile.cloneNode(true);
             clonedTile.style.position = "absolute";
-            clonedTile.style.width = `${target.offsetWidth}px`; 
-            clonedTile.style.height = `${target.offsetHeight}px`;
+            clonedTile.style.width = `${tile.offsetWidth}px`; 
+            clonedTile.style.height = `${tile.offsetHeight}px`;
             clonedTile.style.opacity = "0.7";
             clonedTile.style.pointerEvents = "none";
             clonedTile.style.zIndex = "999";
