@@ -162,17 +162,12 @@ document.addEventListener("touchstart", (e) => {
     let tile = e.target.closest(".tile");
     let album = e.target.closest(".album");
 
-    console.log(tile);
-    console.log(album);
-
-    if (tile != null) {
-        for (let icon in album.children) {
-            if (icon.style.backgroundImage == tile.style.backgroundImage) {
-                console.log(true);
-            }
+    if (tile) {
+        e.preventDefault();
+        if (parseInt(album.dataset.value)!=discovered.length) {
+            return;
         }
 
-        e.preventDefault();
         if (!tile.classList.contains("generator")) {
             handleDragStart(e.target);
 
