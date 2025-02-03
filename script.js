@@ -279,12 +279,12 @@ function refreshDiscs() {
         if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
+                album.setAttribute("draggable","false");
                 if (album.dataset.value < discovered.length) {
                     icon.style.filter = "brightness(25%)";
                 }
             }
             lastDiscoveredAlbum = album;
-            lastDiscoveredAlbum.setAttribute("draggable","false");
         }
     }
 
