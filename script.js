@@ -2,12 +2,12 @@ const board = document.getElementById("board");
 const albums = document.getElementById("discs-holder");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
-let covers = {};
-let emptyTiles = [];
-let coins = 0;
 let tileAnimations = new Map();
+let emptyTiles = [];
+let discovered = [];
+let covers = {};
+let coins = 0;
 let limit = 0;
-let discovered = 5;
 
 function login(clientId, id) {
     const redirectUri = window.location.origin + window.location.pathname; // Redirect to the same page
@@ -79,18 +79,23 @@ function login(clientId, id) {
 
 function gameplay() {
     function populateAlbums() {
-        for (let y = 49;y>0;y--) {
+        for (let y = 0;y<=50;y++) {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
             album.classList.add("album");
             album.dataset.value = y.toString();
             let image = document.createElement("div");
             image.classList.add("tile", "empty");
-            image.style.backgroundImage = `url("${covers[y]}")`;
+            image.style.backgroundImage = `url("${covers[(50-y)]}")`;
             image.style.filter = 'blur(10px)';
             album.appendChild(image);
             albums.appendChild(album);
+
+            if (album.dataset.value<5) {
+                discovered.push(album);
+            }
         }
+
         refreshDiscs();
     }
     
@@ -268,10 +273,10 @@ function handleTileDrop(target) {
 function refreshDiscs() {
     let albums = document.getElementById("discs-holder").children;
     for (let album of albums) {
-        if (album.dataset.value <= discovered) {
+        if (album.dataset.value <= discovered.length) {
             for (let icon of album.children) {
                 icon.style.filter = "blur(0px)";
-                if (album.dataset.value<discovered) {
+                if (album.dataset.value<discovered.length) {
                     icon.style.filter = "brightness(25%)";
                 }
             }
