@@ -95,9 +95,6 @@ function gameplay() {
                 discovered.push(album);
             }
         }
-
-        console.log(discovered);
-        refreshDiscs();
     }
     
     function generate() {
