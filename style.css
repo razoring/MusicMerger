@@ -131,11 +131,12 @@ body {
 
 #drop-holder {
     display: flex;
+    height: 150px;
 }
 
 .reciever {
     background-color: rgb(29, 29, 29);
     border-radius: 5px;
     width: 50%;
-    height: 150px;
+    height: 100%;
 }
