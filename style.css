@@ -124,6 +124,17 @@ body {
     background-size: contain;
     flex-shrink: 0;
 }
+
+#receiver {
+    width: var(--tileSize);
+    height: var(--tileSize);
+    background-color: rgb(35, 35, 35);
+    border-radius: 5px;
+    align-items: center;
+    background-size: contain;
+    transform-origin: center center;
+}
+
 /* stats */
 .stat-holder {
     gap: 5px;
