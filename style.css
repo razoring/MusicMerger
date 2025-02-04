@@ -41,6 +41,47 @@ body {
     gap: 10px;
 }
 
+/* gameplay */
+#board {
+    display: grid;
+    background-color: rgb(29, 29, 29);
+    gap: var(--gap);
+    grid-template-columns: repeat(7, var(--tileSize));
+    grid-template-rows: repeat(9, var(--tileSize));
+    border-radius: 5px;
+    padding: var(--gap); /* Match #discs-holder's padding */
+    margin: auto;
+    width: max-content;
+    height: max-content;
+    overflow: hidden;
+}
+
+.tile {
+    width: var(--tileSize);
+    height: var(--tileSize);
+    background-color: rgba(255, 0, 0, 0);
+    border-radius: 5px;
+    cursor: grab;
+    align-items: center;
+    background-size: contain;
+    padding: 0;
+    transition: 250ms;
+    transform-origin: center center;
+}
+
+.generator {
+    background-color: rgb(30, 215, 96);
+    background-size: contain;
+    background-image: url('images/random.png');
+    cursor: pointer;
+}
+
+.empty {
+    background-color: rgb(35, 35, 35);
+    cursor: default;
+}
+
+/* sidebar */
 #display {
     display: flex;
     align-items: flex-start;
@@ -83,46 +124,7 @@ body {
     background-size: contain;
     flex-shrink: 0;
 }
-
-#board {
-    display: grid;
-    background-color: rgb(29, 29, 29);
-    gap: var(--gap);
-    grid-template-columns: repeat(7, var(--tileSize));
-    grid-template-rows: repeat(9, var(--tileSize));
-    border-radius: 5px;
-    padding: var(--gap); /* Match #discs-holder's padding */
-    margin: auto;
-    width: max-content;
-    height: max-content;
-    overflow: hidden;
-}
-
-.tile {
-    width: var(--tileSize);
-    height: var(--tileSize);
-    background-color: rgba(255, 0, 0, 0);
-    border-radius: 5px;
-    cursor: grab;
-    align-items: center;
-    background-size: contain;
-    padding: 0;
-    transition: 250ms;
-    transform-origin: center center;
-}
-
-.generator {
-    background-color: rgb(30, 215, 96);
-    background-size: contain;
-    background-image: url('images/random.png');
-    cursor: pointer;
-}
-
-.empty {
-    background-color: rgb(35, 35, 35);
-    cursor: default;
-}
-
+/* stats */
 .stat-holder {
     gap: 5px;
     display: flex;
@@ -139,6 +141,7 @@ body {
     display: flex;
 }
 
+/*bottom reciever*/
 #drop-holder {
     display: flex;
     height: 150px;
