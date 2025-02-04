@@ -91,13 +91,12 @@ function gameplay() {
             album.appendChild(image);
             albums.appendChild(album);
 
-            refreshDiscs();
-            console.log(album.dataset.value);
             if (album.dataset.value<4) {
                 discovered.push(album);
                 console.log(discovered);
             }
         }
+        refreshDiscs();
     }
     
     function generate() {
