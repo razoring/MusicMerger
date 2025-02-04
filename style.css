@@ -136,4 +136,6 @@ body {
 .reciever {
     background-color: rgb(29, 29, 29);
     border-radius: 5px;
+    width: 50%;
+    height: 150px;
 }
