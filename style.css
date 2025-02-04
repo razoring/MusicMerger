@@ -128,3 +128,12 @@ body {
 #stats {
     display: flex;
 }
+
+#drop-holder {
+    display: flex;
+}
+
+.reciever {
+    background-color: rgb(29, 29, 29);
+    border-radius: 5px;
+}
