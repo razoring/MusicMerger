@@ -132,6 +132,7 @@ body {
 #drop-holder {
     display: flex;
     height: 150px;
+    width: 100%;
 }
 
 .reciever {
