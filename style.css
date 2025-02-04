@@ -10,6 +10,12 @@
     height: 30px;
 }
 
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 /* fonts */
 .regular {
     font-family: "Belanosima", serif;
@@ -104,6 +110,7 @@ body {
 
 #discs-holder {
     display: flex;
+    position: relative;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0);
     height: 90%;
