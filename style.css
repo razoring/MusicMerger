@@ -106,7 +106,7 @@ body {
     width: auto;
     gap: var(--gap);
     padding: var(--gap);
-    overflow-y: hidden !important;
+    overflow-y: visible !important;
 }
 
 #discs-holder {
