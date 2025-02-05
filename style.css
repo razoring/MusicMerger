@@ -144,7 +144,7 @@ body {
     transform-origin: center center;
 }
 
-#discs-holder .icon { 
+#discs-holder .sticky { 
     overflow: visible; /* special condition to forced render */
 }
 
