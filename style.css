@@ -10,7 +10,7 @@
     height: 30px;
 }
 
-.overlay {
+.flag {
     top: -50px;
     z-index: 10;
     margin-bottom: -50px;
