@@ -144,6 +144,10 @@ body {
     transform-origin: center center;
 }
 
+#discs-holder .icon { 
+    overflow: visible; /* special condition to forced render */
+}
+
 /* stats */
 .stat-holder {
     gap: 5px;
