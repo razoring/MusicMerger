@@ -10,11 +10,10 @@
     height: 30px;
 }
 
-.sticky {
-    position: absolute;
-    top: -20px;
+.overlay {
+    top: -50px;
     z-index: 10;
-    margin-bottom: -20px;
+    margin-bottom: -50px;
 }
 
 /* fonts */
