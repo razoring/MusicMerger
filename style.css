@@ -14,7 +14,6 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: rgb(29, 29, 29);
 }
 
 /* fonts */
@@ -119,6 +118,7 @@ body {
     gap: var(--gap);
     overflow-y: scroll !important;
     scrollbar-width: none;
+    align-items: center;
 }
 
 .album {
