@@ -109,7 +109,7 @@ body {
     transition:200ms;
 }
 
-.dropping {
+#sidebar.dropping::after {
     content: "";
     position: absolute;
     top: 4px;
