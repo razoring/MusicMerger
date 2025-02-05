@@ -95,7 +95,7 @@ body {
     gap: 5px;
 }
 
-#sidebar {
+.sidebar {
     position: relative;
     display: flex;
     flex-direction: column;
