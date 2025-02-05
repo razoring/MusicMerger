@@ -96,7 +96,6 @@ body {
 }
 
 #sidebar {
-    position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -106,25 +105,20 @@ body {
     gap: var(--gap);
     padding: var(--gap);
     overflow-y: visible !important;
-
-    box-shadow: inset 0 0 0 10px transparent,
-                inset 0 0 0 11px white,
-                inset 0 0 0 12px transparent,
-                inset 0 0 0 13px white;
+    position: relative; /* Required for pseudo-element positioning */
 }
 
 #sidebar::before {
-    content: "";
+    content: ""; /* Required for pseudo-elements */
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 2px dotted white;
-    pointer-events: none;
-    border-radius: 3px;
+    top: 10px; /* Offset from the top */
+    left: 10px; /* Offset from the left */
+    right: 10px; /* Offset from the right */
+    bottom: 10px; /* Offset from the bottom */
+    border: 2px dotted rgba(255, 255, 255, 0.5); /* Dotted outline */
+    border-radius: 5px; /* Match the border-radius of #sidebar */
+    pointer-events: none; /* Ensure the pseudo-element doesn't block interactions */
 }
-
 
 #discs-holder {
     display: flex;
