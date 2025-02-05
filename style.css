@@ -143,10 +143,6 @@ body {
     transform-origin: center center;
 }
 
-#discs-holder .sticky { 
-    overflow: visible; /* special condition to forced render */
-}
-
 /* stats */
 .stat-holder {
     gap: 5px;
