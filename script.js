@@ -238,7 +238,7 @@ document.addEventListener("click", (e) => {
 });
 
 function handleDragStart(target) {
-    console.log("drop");
+    albums.style.opacity = "30%";
     sidebar.classList.add("dropping");
     if (target.classList.contains("tile") && !target.classList.contains("generator") && !target.classList.contains("empty")) {
         draggedTile = target;
@@ -325,8 +325,8 @@ function refreshDiscs() {
     }
 
     if (!isDragging) {
-        console.log("dropped");
         sidebar.classList.remove("dropping");
+        albums.style.opacity = "100%";
         if (lastVisibleAlbum) {
             lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
             lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });

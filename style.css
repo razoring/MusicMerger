@@ -118,6 +118,7 @@ body {
     bottom: 2px;
     border: 1px dotted rgb(90, 90, 90);
     border-radius: 7px;
+    transition:200ms;
 }
 
 #discs-holder {
@@ -131,6 +132,7 @@ body {
     overflow-y: scroll !important;
     scrollbar-width: none;
     align-items: center;
+    transition:200ms;
 }
 
 .album {
