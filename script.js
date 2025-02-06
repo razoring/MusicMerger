@@ -238,7 +238,7 @@ document.addEventListener("click", (e) => {
 });
 
 function handleDragStart(target) {
-    albums.style.opacity = "10%";
+    albums.style.opacity = "0%";
     sidebar.classList.add("dropping");
     if (target.classList.contains("tile") && !target.classList.contains("generator") && !target.classList.contains("empty")) {
         draggedTile = target;
