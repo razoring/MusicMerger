@@ -297,7 +297,8 @@ function handleTileDrop(target) {
 
     if (!draggedTile) return;
 
-    if (target.classList.contains("sidebar")) {
+    if (target.id.contains("sidebar")) {
+        console.log(draggedTile.dataset.value);
         addAlbum(draggedTile.dataset.value);
     } else {
         if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
