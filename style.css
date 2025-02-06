@@ -112,11 +112,12 @@ body {
 #sidebar.dropping::after {
     content: "";
     position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    border: 2px dotted rgb(90, 90, 90);
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 1px dotted rgb(90, 90, 90);
+    border-radius: 7px;
 }
 
 #discs-holder {
