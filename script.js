@@ -88,6 +88,7 @@ function addAlbum(cover) {
     image.style.backgroundImage = `url("${covers[cover]}")`;
     album.appendChild(image);
     albums.appendChild(album);
+    discovered.push(url("${covers[cover]}"));
 }
 
 function gameplay() {
@@ -298,7 +299,9 @@ function handleTileDrop(target) {
     if (!draggedTile) return;
 
     if (target.id == ("sidebar")) {
-        addAlbum(draggedTile.dataset.value);
+        if (!discovered.contains(url(`${covers[draggedTile.dataset.value]}`))) {
+            addAlbum(draggedTile.dataset.value);
+        }
     } else {
         if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
             if (!target.classList.contains("empty")) {
