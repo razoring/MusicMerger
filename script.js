@@ -209,7 +209,7 @@ document.addEventListener("touchmove", (e) => {
 
     // check if touch is still in holder
     let elementUnderTouch = document.elementFromPoint(touchX, touchY);
-    if (!discsHolder.contains(elementUnderTouch)) {
+    if (!albums.contains(elementUnderTouch)) {
         isDragging = true;
     }
 })
@@ -306,10 +306,9 @@ function handleTileDrop(target) {
 }
 
 function refreshDiscs() {
-    let albums = document.getElementById("discs-holder").children;
     let lastVisibleAlbum = null;
 
-    for (let album of albums) {
+    for (let album of albums.children) {
         album.setAttribute("draggable", "false");
 
         if (album.dataset.value <= discovered.length) {
