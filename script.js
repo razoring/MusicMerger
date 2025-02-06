@@ -78,19 +78,19 @@ function login(clientId, id) {
     initialize();
 }
 
-function gameplay() {
-    function addAlbum(id) {
-        let album = document.createElement("div");
-        album.setAttribute("draggable", "false");
-        album.classList.add("album");
-        album.dataset.value = y.toString();
-        let image = document.createElement("div");
-        image.classList.add("tile", "empty");
-        image.style.backgroundImage = `url("${covers[id]}")`;
-        album.appendChild(image);
-        albums.appendChild(album);
-    }
+function addAlbum(id) {
+    let album = document.createElement("div");
+    album.setAttribute("draggable", "false");
+    album.classList.add("album");
+    album.dataset.value = y.toString();
+    let image = document.createElement("div");
+    image.classList.add("tile", "empty");
+    image.style.backgroundImage = `url("${covers[id]}")`;
+    album.appendChild(image);
+    albums.appendChild(album);
+}
 
+function gameplay() {
     /*function populateAlbums() {
         for (let y = covers.length-1;y>=0;y--) {
             let album = document.createElement("div");
@@ -297,8 +297,7 @@ function handleTileDrop(target) {
 
     if (!draggedTile) return;
 
-    if (target.id.contains("sidebar")) {
-        console.log(draggedTile.dataset.value);
+    if (target.id == ("sidebar")) {
         addAlbum(draggedTile.dataset.value);
     } else {
         if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
