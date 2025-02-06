@@ -238,6 +238,7 @@ document.addEventListener("click", (e) => {
 });
 
 function handleDragStart(target) {
+    console.log("drop");
     sidebar.classList.add("dropping");
     if (target.classList.contains("tile") && !target.classList.contains("generator") && !target.classList.contains("empty")) {
         draggedTile = target;
@@ -325,6 +326,7 @@ function refreshDiscs() {
     }
 
     if (!isDragging) {
+        console.log("dropped");
         sidebar.classList.remove("dropping");
         if (lastVisibleAlbum) {
             lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
