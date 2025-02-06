@@ -79,14 +79,14 @@ function login(clientId, id) {
 }
 
 function gameplay() {
-    function addAlbum(pos) {
+    function addAlbum(id) {
         let album = document.createElement("div");
         album.setAttribute("draggable", "false");
         album.classList.add("album");
         album.dataset.value = y.toString();
         let image = document.createElement("div");
         image.classList.add("tile", "empty");
-        image.style.backgroundImage = `url("${covers[pos]}")`;
+        image.style.backgroundImage = `url("${covers[id]}")`;
         album.appendChild(image);
         albums.appendChild(album);
     }
@@ -280,7 +280,6 @@ function handleTileDrop(target) {
     sidebar.classList.remove("dropping");
     albums.style.opacity = "100%";
     refreshDiscs()
-    console.log(target);
 
     let tiles = document.getElementById("board").children;
     for (let tile of tiles) {
@@ -297,21 +296,26 @@ function handleTileDrop(target) {
     }
 
     if (!draggedTile) return;
-    if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
-        if (!target.classList.contains("empty")) {
-            if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
-                draggedTile.classList.add("empty");
-                draggedTile.setAttribute("draggable", "false");
-                draggedTile.style.backgroundImage = null;
-                draggedTile.dataset.value = "-1";
-                emptyTiles.push(draggedTile);
 
-                target.dataset.value = (parseInt(target.dataset.value) + 1).toString();
-                target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
-                emptyTiles = emptyTiles.filter(tile => tile !== target);
-
-                coins = coins + 1;
-                document.getElementById("coinLabel").textContent = `${coins}`;
+    if (target.classList.contains("sidebar")) {
+        addAlbum(draggedTile.dataset.value);
+    } else {
+        if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
+            if (!target.classList.contains("empty")) {
+                if (parseInt(target.dataset.value) === parseInt(draggedTile.dataset.value)) {
+                    draggedTile.classList.add("empty");
+                    draggedTile.setAttribute("draggable", "false");
+                    draggedTile.style.backgroundImage = null;
+                    draggedTile.dataset.value = "-1";
+                    emptyTiles.push(draggedTile);
+    
+                    target.dataset.value = (parseInt(target.dataset.value) + 1).toString();
+                    target.style.backgroundImage = `url("${covers[target.dataset.value]}")`;
+                    emptyTiles = emptyTiles.filter(tile => tile !== target);
+    
+                    coins = coins + 1;
+                    document.getElementById("coinLabel").textContent = `${coins}`;
+                }
             }
         }
     }
