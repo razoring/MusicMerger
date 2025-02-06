@@ -78,14 +78,14 @@ function login(clientId, id) {
     initialize();
 }
 
-function addAlbum(id) {
+function addAlbum(cover) {
     let album = document.createElement("div");
     album.setAttribute("draggable", "false");
     album.classList.add("album");
-    album.dataset.value = y.toString();
+    album.dataset.value = cover.toString();
     let image = document.createElement("div");
     image.classList.add("tile", "empty");
-    image.style.backgroundImage = `url("${covers[id]}")`;
+    image.style.backgroundImage = `url("${covers[cover]}")`;
     album.appendChild(image);
     albums.appendChild(album);
 }
