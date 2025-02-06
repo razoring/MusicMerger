@@ -266,6 +266,8 @@ function handleDragStart(target) {
 }
 
 function handleTileDrop(target) {
+    sidebar.classList.remove("dropping");
+    albums.style.opacity = "100%";
     refreshDiscs()
 
     let tiles = document.getElementById("board").children;
@@ -325,8 +327,6 @@ function refreshDiscs() {
     }
 
     if (!isDragging) {
-        sidebar.classList.remove("dropping");
-        albums.style.opacity = "100%";
         if (lastVisibleAlbum) {
             lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
             lastVisibleAlbum.scrollIntoView({ behavior: "smooth", block: "center" });
