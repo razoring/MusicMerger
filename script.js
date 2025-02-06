@@ -79,6 +79,7 @@ function login(clientId, id) {
 }
 
 function gameplay() {
+    /*
     function populateAlbums() {
         for (let y = covers.length-1;y>=0;y--) {
             let album = document.createElement("div");
@@ -98,7 +99,7 @@ function gameplay() {
             }
         }
         refreshDiscs();
-    }
+    }*/
     
     function generate() {
         board.innerHTML = "";
