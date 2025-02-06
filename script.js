@@ -79,7 +79,7 @@ function login(clientId, id) {
 }
 
 function gameplay() {
-    function populateAlbums() {
+    /*function populateAlbums() {
         for (let y = covers.length-1;y>=0;y--) {
             let album = document.createElement("div");
             album.setAttribute("draggable", "false");
@@ -97,7 +97,7 @@ function gameplay() {
                 console.log(discovered);
             }
         }
-    }
+    }*/
     
     function generate() {
         board.innerHTML = "";
@@ -141,7 +141,7 @@ function gameplay() {
         }
     }
 
-    populateAlbums();
+    //populateAlbums();
     generate();
 }
 
