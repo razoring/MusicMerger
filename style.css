@@ -109,7 +109,7 @@ body {
     transition:200ms;
 }
 
-#sidebar.dropping {
+#sidebar.dropping::after {
     border: 2px dotted rgb(90, 90, 90); 
     opacity: 30%;
 }
