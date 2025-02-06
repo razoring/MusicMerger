@@ -98,7 +98,6 @@ function gameplay() {
                 console.log(discovered);
             }
         }
-        refreshDiscs();
     }*/
     
     function generate() {
@@ -143,7 +142,7 @@ function gameplay() {
         }
     }
 
-    populateAlbums();
+    //populateAlbums();
     generate();
 }
 
