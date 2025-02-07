@@ -178,7 +178,7 @@ body {
 #drop-holder {
     display: flex;
     height: 80px;
-    width: 80%;
+    width: 97%;
     background-color: rgb(29, 29, 29);
     border-radius: 7px;
     padding: var(--gap);
