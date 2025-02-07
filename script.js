@@ -1,6 +1,7 @@
 const board = document.getElementById("board");
 const albums = document.getElementById("discs-holder");
 const sidebar = document.getElementById("sidebar");
+const receiver = document.getElementById("drop-holder");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let tileAnimations = new Map();
@@ -252,6 +253,9 @@ document.addEventListener("click", (e) => {
 function handleDragStart(target) {
     albums.style.opacity = "0%";
     sidebar.classList.add("dropping");
+    receiver.classList.remove("shop");
+    receiver.classList.add("sell");
+
     if (target.classList.contains("tile") && !target.classList.contains("generator") && !target.classList.contains("empty")) {
         draggedTile = target;
         target.style.opacity = "0.5";
@@ -279,6 +283,9 @@ function handleDragStart(target) {
 
 function handleTileDrop(target) {
     sidebar.classList.remove("dropping");
+    receiver.classList.remove("sell");
+    receiver.classList.add("shop");
+
     albums.style.opacity = "100%";
     refreshDiscs()
 

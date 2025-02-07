@@ -189,9 +189,10 @@ body {
     padding: var(--gap);
     justify-content: center;
     align-items: center;
+    transition: 200ms;
 }
 
-.receiver {
+.sell {
     background-color: rgb(29, 29, 29);
     border-radius: var(--gap);
     width: 100%;
@@ -201,6 +202,7 @@ body {
     right: 2px;
     bottom: 2px;
     border: 1px dotted rgb(90, 90, 90);
+    transition: 200ms;
 }
 
 .shop {
@@ -208,4 +210,5 @@ body {
     border-radius: var(--gap);
     width: 100%;
     height: 100%;
+    transition: 200ms;
 }
