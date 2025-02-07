@@ -1,7 +1,7 @@
 const board = document.getElementById("board");
 const albums = document.getElementById("discs-holder");
 const sidebar = document.getElementById("sidebar");
-const receiver = document.getElementById("drop-holder");
+const receiver = document.getElementById("holder");
 //const playlist = "37i9dQZF1EJAnB2jypsBHB"; // blend
 const playlist = "4CQNqjCyde5BIpJlUDxZZi";
 let tileAnimations = new Map();
