@@ -11,11 +11,6 @@
     pointer-events: none;
 }
 
-.flag {
-    z-index: 10;
-    margin-bottom: -20px;
-}
-
 /* fonts */
 .regular {
     font-family: "Belanosima", serif;
