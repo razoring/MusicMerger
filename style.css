@@ -147,7 +147,7 @@ body {
     flex-shrink: 0;
 }
 
-#receiver {
+#drop {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: rgb(35, 35, 35);
@@ -181,7 +181,7 @@ body {
     width: 100%;
 }
 
-.sell {
+.receiver {
     background-color: rgb(29, 29, 29);
     border-radius: 5px;
     width: 100%;
