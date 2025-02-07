@@ -301,6 +301,11 @@ function handleTileDrop(target) {
     if (target.id == ("sidebar")) {
         if (!discovered.includes(draggedTile.dataset.value)) {
             addAlbum(draggedTile.dataset.value);
+            draggedTile.classList.add("empty");
+            draggedTile.setAttribute("draggable", "false");
+            draggedTile.style.backgroundImage = null;
+            draggedTile.dataset.value = "-1";
+            emptyTiles.push(draggedTile);
         }
     } else {
         if (target && target.classList.contains("tile") && target !== draggedTile && !target.classList.contains("generator")) {
