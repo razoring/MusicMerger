@@ -147,7 +147,7 @@ body {
     flex-shrink: 0;
 }
 
-#drop {
+#tile-receiver {
     width: var(--tileSize);
     height: var(--tileSize);
     background-color: rgb(35, 35, 35);
