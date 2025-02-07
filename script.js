@@ -334,22 +334,6 @@ function handleTileDrop(target) {
 function refreshDiscs() {
     let lastVisibleAlbum = null;
 
-    for (let album of albums.children) {
-        album.setAttribute("draggable", "false");
-
-        if (album.dataset.value <= discovered.length) {
-            for (let icon of album.children) {
-                icon.style.filter = "blur(0px)";
-                if (album.dataset.value < discovered.length) {
-                    icon.style.filter = "brightness(25%)";
-                } else {
-                    icon.style.filter = "brightness(100%)"; 
-                    lastVisibleAlbum = album; 
-                }
-            }
-        }
-    }
-
     if (!isDragging) {
         if (lastVisibleAlbum) {
             lastVisibleAlbum.style.backgroundImage = `url("${covers[discovered.length - 1]}")`;
