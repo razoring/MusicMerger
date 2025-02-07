@@ -182,6 +182,8 @@ body {
     background-color: rgb(29, 29, 29);
     border-radius: 5px;
     padding: var(--gap);
+    justify-content: center;
+    align-items: center;
 }
 
 .receiver {
