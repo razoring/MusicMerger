@@ -299,7 +299,7 @@ function handleTileDrop(target) {
     if (!draggedTile) return;
 
     if (target.id == ("sidebar")) {
-        if (!discovered.contains(draggedTile.dataset.value)) {
+        if (!discovered.includes(draggedTile.dataset.value)) {
             addAlbum(draggedTile.dataset.value);
         }
     } else {
