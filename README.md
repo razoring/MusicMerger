@@ -1,3 +1,3 @@
 # MusicMerger
  
-Made this for a girl.
+Made this for someone.
